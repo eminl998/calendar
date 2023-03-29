@@ -72,8 +72,13 @@
                                             <button type="submit" class="text-red-500">Cancel</button>
                                         </form>
                                         @else
-                                            Aproved or Rejected at 01.01.2030 
+
+                                        if Admin Show button approve or reject else
+                                        if user
+                                        Approved or rejected on date : Filan Fisteku
+
                                         @endif
+                                    
                                     </td>
                             @endforeach
                         </tbody>
@@ -84,3 +89,20 @@
         </div>
     </div> 
 </div>
+
+                                        {{-- <div class="flex flex-row">
+                                            <div class="">
+                                                <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-red-500">Approve</button>
+                                                </form>
+                                            </div>
+                                            <div class="ml-2">
+                                                <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-red-500">Reject</button>
+                                                </form>
+                                            </div>
+                                        </div>   --}}
