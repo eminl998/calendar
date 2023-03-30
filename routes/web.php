@@ -29,6 +29,9 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/vacation-requests', [VacationRequestController::class, 'index'])->name('vacation-requests.index');
     Route::post('/vacation-requests', [VacationRequestController::class, 'store'])->name('vacation-requests.store');
+    Route::post('/vacation-requests/{request}/approve', [DashboardController::class, 'approve'])->name('vacation-requests.approve');
+    Route::post('/vacation-requests/{request}/reject', [DashboardController::class, 'reject'])->name('vacation-requests.reject');
+
     Route::delete('/vacation-requests/{id}', [VacationRequestController::class, 'destroy'])->name('vacation-requests.destroy');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

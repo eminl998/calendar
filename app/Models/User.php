@@ -15,6 +15,7 @@ class User extends Authenticatable
         return $this->hasMany(VacationRequest::class);
     }
 
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -26,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
