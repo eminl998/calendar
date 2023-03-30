@@ -26,45 +26,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                                $vacationRequests = App\Models\VacationRequest::all();
-                            @endphp
-                            @foreach($vacationRequests->sortByDesc('start_date') as $request)
-                                @if($request->status == 'pending')
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-500 dark:hover:bg-gray-800">
-                                @elseif($request->status == 'approved')
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                                @else
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800">
-                                @endif
-                                    <td class="flex items-center px-6 py-4 text-gray-800 whitespace-nowrap dark:text-white">
-                                        @if($request->status == 'approved')
-                                            @php
-                                                $user = App\Models\User::find($request->user_id);
-                                            @endphp
-                                            @if ($user)
-                                                <div class="font-semibold ">
-                                                    {{ $user->name }}
-                                                </div>
-                                            @endif
-                                        @endif
-                                    <td>
-                                        <div class="pl-3">
-                                            <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
-                                                {{ $request->start_date }} to {{ $request->end_date }}
+                            @foreach($pendingRequests->sortByDesc('start_date') as $request)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-500 dark:hover:bg-gray-800">
+                                <td class="flex items-center px-6 py-4 text-gray-800 whitespace-nowrap dark:text-white">
+                                    <div>
+                                        @php
+                                            $user = App\Models\User::find($request->user_id);
+                                        @endphp
+                                        @if ($user)
+                                            <div>
+                                                {{ $user->name }}
                                             </div>
+                                        @endif
+                                    </div>     
+                                </td>
+                                <td class="px-6 py-4">
+                                        <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                             {{ $request->start_date }} to {{ $request->end_date }}
                                         </div>
-                                    </td>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $request->leave_type }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            {{ $request->status }}
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $request->leave_type }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        {{ $request->status }}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
                                         @if ($request->status == 'pending')
                                         <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
                                             @csrf
@@ -80,6 +69,101 @@
                                         @endif
                                     
                                     </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        <tbody>
+                            @foreach($approvedRequests->sortByDesc('start_date') as $request)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-500 dark:hover:bg-gray-800">
+                                <td class="flex items-center px-6 py-4 text-gray-800 whitespace-nowrap dark:text-white">
+                                    <div>
+                                        @php
+                                            $user = App\Models\User::find($request->user_id);
+                                        @endphp
+                                        @if ($user)
+                                            <div>
+                                                {{ $user->name }}
+                                            </div>
+                                        @endif
+                                    </div>     
+                                </td>
+                                <td class="px-6 py-4">
+                                        <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                             {{ $request->start_date }} to {{ $request->end_date }}
+                                        </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $request->leave_type }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        {{ $request->status }}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                        @if ($request->status == 'pending')
+                                        <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-500">Cancel</button>
+                                        </form>
+                                        @else
+
+                                        if Admin Show button approve or reject else
+                                        if user
+                                        Approved or rejected on date : Filan Fisteku
+
+                                        @endif
+                                    
+                                    </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        <tbody>
+                            @foreach($rejectedRequests->sortByDesc('start_date') as $request)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-500 dark:hover:bg-gray-800">
+                                <td class="flex items-center px-6 py-4 text-gray-800 whitespace-nowrap dark:text-white">
+                                    <div>
+                                        @php
+                                            $user = App\Models\User::find($request->user_id);
+                                        @endphp
+                                        @if ($user)
+                                            <div>
+                                                {{ $user->name }}
+                                            </div>
+                                        @endif
+                                    </div>     
+                                </td>
+                                <td class="px-6 py-4">
+                                        <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                             {{ $request->start_date }} to {{ $request->end_date }}
+                                        </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $request->leave_type }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        {{ $request->status }}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                        @if ($request->status == 'pending')
+                                        <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-500">Cancel</button>
+                                        </form>
+                                        @else
+
+                                        if Admin Show button approve or reject else
+                                        if user
+                                        Approved or rejected on date : Filan Fisteku
+
+                                        @endif
+                                    
+                                    </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -89,20 +173,3 @@
         </div>
     </div> 
 </div>
-
-                                        {{-- <div class="flex flex-row">
-                                            <div class="">
-                                                <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="text-red-500">Approve</button>
-                                                </form>
-                                            </div>
-                                            <div class="ml-2">
-                                                <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="text-red-500">Reject</button>
-                                                </form>
-                                            </div>
-                                        </div>   --}}
