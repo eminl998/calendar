@@ -1,10 +1,10 @@
 @props(['disabled' => false])
-<div class="container mx-auto mt-10 border-2 border-white p-4">
+<div class="mx-auto mt-10 border-2 border-white p-4">
     <div class="flex items-center justify-center mt-4 mb-4">    
         @csrf
         <div class="text-center lg:flex lg:items-center justify-between">
             <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 border-2 border-white p-4">
-                <div class="section bg-blue-200 mr-4 border-2 border-white p-4">
+                <div class="section bg-gray-200 mr-4 border-2 border-white p-4">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
                             <tr>

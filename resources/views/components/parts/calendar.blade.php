@@ -1,6 +1,6 @@
-<div class="container mb-10 mt-10">
+<div class="mb-10 mt-10">
     <div class="mt-3" style="display: flex;justify-content:center;align-items:center ">
-      <div class="bg-gray-100 dark:bg-gray-800 text-black dark:text-white">
+      <div class="bg-white dark:bg-gray-800 text-black dark:text-white px-4 py-6 rounded-xl">
         <!DOCTYPE html>
           <html lang='en'>
             <head>

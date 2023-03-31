@@ -13,9 +13,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        {{-- <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
         <link href="{{ asset('css/core/main.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/daygrid/main.css') }}" rel="stylesheet"> --}}
+        <link href="{{ asset('css/daygrid/main.css') }}" rel="stylesheet">
         <script src="{{ asset('js/core/main.js') }}" defer></script>
         <script src="{{ asset('js/interaction/main.js') }}" defer></script>
         <script src="{{ asset('js/daygrid/main.js') }}" defer></script>
