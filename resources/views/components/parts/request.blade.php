@@ -57,22 +57,27 @@
                                 <td class="px-6 py-4">
                                     @if ($request->status == 'pending')
                                         @if (Auth::user()->is_admin == 1)
-                                        <div class="flex flex-row">
-                                            <div>
-                                            <form method="POST" action="{{ route('vacation-requests.approve', $request->id) }}" class="inline">
-                                                @csrf
-                                                <button type="submit" class="text-green-500 mr-2">Accept</button>
-                                            </form>
+                                            <div class="flex flex-row">
+                                                <div>
+                                                    <form method="POST" action="{{ route('vacation-requests.approve', $request->id) }}" class="inline">
+                                                        @csrf
+                                                        <button type="submit" class="text-green-500 mr-2">Accept</button>
+                                                    </form>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <form method="POST" action="{{ route('vacation-requests.reject', $request->id) }}" class="inline">
+                                                        @csrf
+                                                        <button type="submit" class="text-red-500">Decline</button>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="ml-3">
-                                            <form method="POST" action="{{ route('vacation-requests.reject', $request->id) }}" class="inline">
-                                                @csrf
-                                                <button type="submit" class="text-red-500">Decline</button>
-                                            </form>
-                                            </div>
-                                        </div>
                                         @else
-                                            <span class="text-gray-500">Pending approval</span>
+                                            <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="text-red-500">Cancel</button>
+                                            </form>
+
                                         @endif
                                     @else
                                         @if ($request->status == 'approved')
@@ -145,6 +150,7 @@
                             </tr>
                             @endforeach
                         </tbody>
+
                         <tbody>
                             @foreach($rejectedRequests->sortByDesc('start_date') as $request)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-500 dark:hover:bg-gray-800">
@@ -211,20 +217,3 @@
         </div>
     </div> 
 </div>
-
-                                        {{-- <div class="flex flex-row">
-                                            <div class="">
-                                                <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="text-red-500">Approve</button>
-                                                </form>
-                                            </div>
-                                            <div class="ml-2">
-                                                <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="text-red-500">Reject</button>
-                                                </form>
-                                            </div>
-                                        </div>   --}}
