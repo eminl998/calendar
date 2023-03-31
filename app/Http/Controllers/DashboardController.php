@@ -18,9 +18,19 @@ class DashboardController extends Controller
             ->get();
 
         if ($user->is_admin) {
+            $pendingRequests = VacationRequest::where('status', 'pending')
+                ->get();
+            $rejectedRequests = VacationRequest::where('status', 'rejected')
+                ->get();
             $approvedRequests = VacationRequest::where('status', 'approved')
                 ->get();
         } else {
+            $pendingRequests = VacationRequest::where('user_id', $user->id)
+                ->where('status', 'pending')
+                ->get();
+            $rejectedRequests = VacationRequest::where('user_id', $user->id)
+                ->where('status', 'rejected')
+                ->get();
             $approvedRequests = VacationRequest::where('user_id', $user->id)
                 ->where('status', 'approved')
                 ->get();
