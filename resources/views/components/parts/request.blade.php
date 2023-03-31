@@ -75,7 +75,7 @@
                                             <form method="POST" action="{{ route('vacation-requests.destroy', $request->id) }}" class="inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="text-red-500">Cancel</button>
+                                                <button type="submit" class="text-red-500 ">Cancel</button>
                                             </form>
 
                                         @endif

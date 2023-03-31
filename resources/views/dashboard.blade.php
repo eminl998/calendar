@@ -17,6 +17,7 @@
             <div  class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
                 @include('components.parts.request')
             </div>
+            
         </div>
 
     </div>
