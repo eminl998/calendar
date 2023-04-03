@@ -20,7 +20,7 @@
                 @include('components.parts.calendar')
             </div>
             {{-- Shfaqja e kerkesave --}}
-            <div  class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
+            <div  class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
                 @include('components.parts.request')
             </div>
         </div>
