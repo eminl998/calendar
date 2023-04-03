@@ -2,7 +2,7 @@
    <div class="h-fulll px-3 py-4 overflow-y-auto bg-gray-300 dark:bg-gray-900 rounded-lg">
       <ul class="space-y-2 font-medium">
         <li>
-            <div class="ml-3 text-xs">Shortcuts</div>
+            <div class="ml-3 text-xs dark:text-white">Shortcuts</div>
          </li>
          <li>
             <a href="/dashboard" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -20,15 +20,15 @@
          </li>
          
          <li> 
-         <a class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" onclick="openModal()" >
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" viewBox="0 0 20 20" fill="currentColor">
-               <path d="M18,3H17V1a1,1,0,0,0-2,0V3H5V1A1,1,0,0,0,3,1V3H2A2,2,0,0,0,0,5V16a2,2,0,0,0,2,2H18a2,2,0,0,0,2-2V5A2,2,0,0,0,18,3ZM4,6A1,1,0,0,1,5,5H6A1,1,0,0,1,6,7H5A1,1,0,0,1,4,6Zm4,0A1,1,0,0,1,9,5h1A1,1,0,0,1,10,7H9A1,1,0,0,1,8,6Zm4,0A1,1,0,0,1,13,5h1a1,1,0,0,1,0,2H13A1,1,0,0,1,12,6Z" />
-
-            </svg>
-            <span class="ml-3">Holiday Vacations</span>
-         </a>
-         @include('components.parts.vacations')
+            <a href="{{ url('components.parts.vacations') }}" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+               <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M18,3H17V1a1,1,0,0,0-2,0V3H5V1A1,1,0,0,0,3,1V3H2A2,2,0,0,0,0,5V16a2,2,0,0,0,2,2H18a2,2,0,0,0,2-2V5A2,2,0,0,0,18,3ZM4,6A1,1,0,0,1,5,5H6A1,1,0,0,1,6,7H5A1,1,0,0,1,4,6Zm4,0A1,1,0,0,1,9,5h1A1,1,0,0,1,10,7H9A1,1,0,0,1,8,6Zm4,0A1,1,0,0,1,13,5h1a1,1,0,0,1,0,2H13A1,1,0,0,1,12,6Z" />
+               </svg>
+               <span class="ml-3">Holiday Vacations</span>
+            </a>
+            @include('components.parts.vacations')
          </li>
+
          
          <li>
             <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">

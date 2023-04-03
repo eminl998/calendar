@@ -33,6 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/vacation-requests/{request}/reject', [DashboardController::class, 'reject'])->name('vacation-requests.reject');
     Route::delete('/vacation-requests/{id}', [VacationRequestController::class, 'destroy'])->name('vacation-requests.destroy');
 
+    Route::get('/vacations', [HolidayVacationsController::class, 'index']);
+
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
