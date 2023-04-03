@@ -1,10 +1,10 @@
 @props(['disabled' => false])
-<div class="mx-auto mt-10 border-2 border-white p-4">
+<div class="mx-auto mt-10   p-4">
     <div class="flex items-center justify-center mt-4 mb-4">    
         @csrf
         <div class="text-center lg:flex lg:items-center justify-between">
-            <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 border-2 border-white p-4">
-                <div class="section bg-gray-200 mr-4 border-2 border-white p-4">
+            <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6  p-4">
+                <div class="section bg-gray-300 dark:bg-gray-150 mr-4 p-2 rounded-xl">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
                             <tr>
@@ -28,7 +28,7 @@
 
                         <tbody>
                             @foreach($pendingRequests->sortByDesc('start_date') as $request)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-500 dark:hover:bg-gray-800">
+                            <tr class="bg-white  dark:bg-gray-800  hover:bg-gray-100 dark:hover:bg-gray-600">
                                 <td class="flex items-center px-6 py-4 text-gray-800 whitespace-nowrap dark:text-white">
                                     <div>
                                         @php
@@ -93,7 +93,7 @@
 
                         <tbody>
                             @foreach($approvedRequests->sortByDesc('start_date') as $request)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-500 dark:hover:bg-gray-800">
+                            <tr class="bg-white  dark:bg-gray-800  hover:bg-gray-100 dark:hover:bg-gray-600">
                                 <td class="flex items-center px-6 py-4 text-gray-800 whitespace-nowrap dark:text-white">
                                     <div>
                                         @php
@@ -153,7 +153,7 @@
 
                         <tbody>
                             @foreach($rejectedRequests->sortByDesc('start_date') as $request)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-500 dark:hover:bg-gray-800">
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
                                 <td class="flex items-center px-6 py-4 text-gray-800 whitespace-nowrap dark:text-white">
                                     <div>
                                         @php
