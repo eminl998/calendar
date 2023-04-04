@@ -17,11 +17,36 @@
             <div>
                 @include('components.parts.calendar')
             </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Holiday Date</th>
+                            <th>Rest Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($vacations as $vacation)
+                            <tr>
+                                <td>{{ $vacation->title }}</td>
+                                <td>{{ $vacation->description }}</td>
+                                <td>{{ $vacation->holiday_date }}</td>
+                                <td>{{ $vacation->rest_date }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+            </div>
             
             {{-- Shfaqja e kerkesave --}}
             <div  class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
                 @include('components.parts.request')
             </div>
+
+            
         </div>
 
     </div>

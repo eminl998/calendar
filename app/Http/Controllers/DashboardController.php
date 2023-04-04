@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HolidayVacation;
 use Illuminate\Support\Facades\Auth;
 use App\Models\VacationRequest;
 
@@ -9,6 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+
         $user = Auth::user();
         $pendingRequests = VacationRequest::where('user_id', $user->id)
             ->where('status', 'pending')

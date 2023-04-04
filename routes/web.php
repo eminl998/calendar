@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VacationRequestController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HolidayVacationsController;
 
 
 
@@ -33,8 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/vacation-requests/{request}/reject', [DashboardController::class, 'reject'])->name('vacation-requests.reject');
     Route::delete('/vacation-requests/{id}', [VacationRequestController::class, 'destroy'])->name('vacation-requests.destroy');
 
-    Route::get('/vacations', [HolidayVacationsController::class, 'index']);
-
+    Route::get('/vacations', [HolidayVacationsController::class, 'index'])->name('vacations.index');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
