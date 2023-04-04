@@ -9,7 +9,5 @@ class HolidayVacation extends Model
 {
     use HasFactory;
 
-    protected $table = 'HolidayVacation';
-
     protected $fillable = ['title', 'description', 'holiday_date', 'rest_date'];
 }
