@@ -34,7 +34,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/vacation-requests/{request}/reject', [DashboardController::class, 'reject'])->name('vacation-requests.reject');
     Route::delete('/vacation-requests/{id}', [VacationRequestController::class, 'destroy'])->name('vacation-requests.destroy');
 
-    Route::get('/vacations', [HolidayVacationsController::class, 'index'])->name('vacations.index');
+    Route::get('/holidays', [HolidayVacationsController::class, 'index'])->name('holidays.index');
+    Route::post('/holidays', [HolidayVacationsController::class, 'store'])->name('holidays.store');
+    Route::delete('/holidays', [HolidayVacationsController::class, 'destroy'])->name('holidays.destroy');
+
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -43,4 +46,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
