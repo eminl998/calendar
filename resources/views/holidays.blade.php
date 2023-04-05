@@ -9,8 +9,8 @@
                     <div class="text-center lg:flex lg:items-center justify-between">
                         <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                             <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
-                                <label for="description">Description:</label>
-                                <textarea name="description" id="description" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!}>{{ old('description') }}</textarea>
+                                <label for="title">title:</label>
+                                <textarea name="title" id="title" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!}>{{ old('title') }}</textarea>
                             </div>
                             <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
                                 <label for="holiday_date">Holiday Date:</label>
@@ -40,9 +40,9 @@
                             <table class="w-full text-sm text-centre text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Holiday Date</th>
-                                    <th>Rest Date</th>
+                                    <th class="py-4">Title</th>
+                                    <th class="py-4">Holiday Date</th>
+                                    <th class="py-4">Rest Date</th>
                                 </tr>
                                 </thead>
 
@@ -54,12 +54,12 @@
                                                 {{ $holiday->title }}
                                             </div>     
                                         </td>
-                                        <td class="px-8 py-8">
+                                        <td class="px-10 py-6">
                                             <div class="">
                                                 {{ $holiday->holiday_date }}
                                             </div>
                                         </td>
-                                        <td class="px-8 py-8">
+                                        <td class="px-10 py-6">
                                                 {{ $holiday->rest_date }}
                                         </td>
                                     </tr>
