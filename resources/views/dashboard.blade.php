@@ -9,9 +9,9 @@
             </div>
 
             {{-- Shfaqja e Sidebarit --}}
-            <div>
-                @include('components.parts.sidebar')
             <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                @include('components.parts.sidebar')
+            </div>
 
             {{-- Shfaqja e kalendarit --}}
             <div>
