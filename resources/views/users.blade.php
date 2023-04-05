@@ -13,6 +13,11 @@
                                     <th class="py-4">Name</th>
                                     <th class="py-4">Email</th>
                                     <th class="py-4">Day off's</th>
+                                    <th class="py-4">Annual Leave</th>
+                                    <th class="py-4">Parental leave</th>
+                                    <th class="py-4">Sick leave</th>
+                                    <th class="py-4">Compassionate leave</th>
+                                    <th class="py-4">Daily rest</th>
                                 </tr>
                                 </thead>
 
@@ -25,19 +30,51 @@
                                             </div>     
                                         </td>
 
-                                        <td class="px-10 py-6">
+                                        <td class="px-20 py-6">
                                             <div class="">
                                                 {{ $user->name }}
                                             </div>
                                         </td>
 
-                                        <td class="px-10 py-6">
+                                        <td class="px-20 py-6">
                                                 {{ $user->email }}
                                         </td>
 
-                                        <td class="px-10 py-6">
+                                        <td class="px-20 py-6">
                                             {{ $user->vacationRequests()->where('status', 'approved')->count() }}
                                         </td>
+
+                                        <td class="px-20 py-6">
+                                            {{ $user->vacationRequests()
+                                            ->where('status', 'approved')
+                                            ->where('leave_type', 'Annual Leave')->count() }}
+                                        </td>
+
+                                        <td class="px-20 py-6">
+                                            {{ $user->vacationRequests()
+                                            ->where('status', 'approved')
+                                            ->where('leave_type', 'Parental Leave')->count() }}
+                                        </td>
+
+                                        <td class="px-20 py-6">
+                                            {{ $user->vacationRequests()
+                                            ->where('status', 'approved')
+                                            ->where('leave_type', 'Sick Leave')->count() }}
+                                        </td>
+
+                                        <td class="px-20 py-6">
+                                            {{ $user->vacationRequests()
+                                            ->where('status', 'approved')
+                                            ->where('leave_type', 'Compassionate Leave')->count() }}
+                                        </td>
+
+                                        <td class="px-20 py-6">
+                                            {{ $user->vacationRequests()
+                                            ->where('status', 'approved')
+                                            ->where('leave_type', 'Daily Rest')->count() }}
+                                        </td>
+
+                                        
 
                                     </tr>
                                     @endforeach
