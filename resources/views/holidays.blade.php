@@ -1,5 +1,6 @@
 <x-app-layout>
-    <div class="py-1">
+    @if (Auth::user()->is_admin == 1)
+           <div class="py-1">
         @props(['disabled' => false])
 
         <div class="mt-1">
@@ -9,8 +10,8 @@
                     <div class="text-center lg:flex lg:items-center justify-between">
                         <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                             <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
-                                <label for="title">title:</label>
-                                <textarea name="title" id="title" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!}>{{ old('title') }}</textarea>
+                                <label for="title">Title:</label>
+                                <textarea name="title" id="title" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'h-10 border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!}>{{ old('title') }}</textarea>
                             </div>
                             <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
                                 <label for="holiday_date">Holiday Date:</label>
@@ -28,7 +29,9 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> 
+    @endif
+
 
         {{-- Shfaqja e Pushimeve --}}
         <div class="mx-auto mt-10   p-4">
