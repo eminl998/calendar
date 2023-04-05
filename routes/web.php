@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VacationRequestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HolidayVacationsController;
+use App\Http\Controllers\UserController;
+
 
 
 
@@ -38,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/holidays', [HolidayVacationsController::class, 'store'])->name('holidays.store');
     Route::delete('/holidays', [HolidayVacationsController::class, 'destroy'])->name('holidays.destroy');
 
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

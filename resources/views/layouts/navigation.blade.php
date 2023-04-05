@@ -18,6 +18,12 @@
                     <x-nav-link :href="route('holidays.index')" :active="request()->routeIs('holidays.index')">
                         {{ __('Holidays') }}
                     </x-nav-link>
+                    
+                    @if (Auth::user()->is_admin == 1)  
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                        {{ __('Users') }}
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
             
