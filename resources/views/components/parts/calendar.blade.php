@@ -49,8 +49,7 @@
                     end: '{{ $request->end_date }}',                      
                   },
                 @endforeach
-
-
+                
                 ]
               });
               calendar.render();

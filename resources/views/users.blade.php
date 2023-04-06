@@ -54,37 +54,80 @@
                                         </td>
 
                                         <td class="px-20 py-6">
-                                            {{ $user->vacationRequests()
-                                            ->where('status', 'approved')
-                                            ->where('leave_type', 'Annual Leave')->count() }}
+                                            @php
+                                                $approvedRequests = $user->vacationRequests()->where('status', 'approved')
+                                                ->where('leave_type', 'Annual Leave')
+                                                ->get();
+                                                $daysOff = 0;
+                                                foreach ($approvedRequests as $request) {
+                                                    $start_date = \Carbon\Carbon::parse($request->start_date);
+                                                    $end_date = \Carbon\Carbon::parse($request->end_date);
+                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                }
+                                                echo $daysOff;
+                                            @endphp
                                         </td>
-
-                                        <td class="px-20 py-6">
-                                            {{ $user->vacationRequests()
-                                            ->where('status', 'approved')
-                                            ->where('leave_type', 'Parental Leave')->count() }}
-                                        </td>
-
-                                        <td class="px-20 py-6">
-                                            {{ $user->vacationRequests()
-                                            ->where('status', 'approved')
-                                            ->where('leave_type', 'Sick Leave')->count() }}
-                                        </td>
-
-                                        <td class="px-20 py-6">
-                                            {{ $user->vacationRequests()
-                                            ->where('status', 'approved')
-                                            ->where('leave_type', 'Compassionate Leave')->count() }}
-                                        </td>
-
-                                        <td class="px-20 py-6">
-                                            {{ $user->vacationRequests()
-                                            ->where('status', 'approved')
-                                            ->where('leave_type', 'Daily Rest')->count() }}
-                                        </td>
-
                                         
+                                        <td class="px-20 py-6">
+                                            @php
+                                                $approvedRequests = $user->vacationRequests()->where('status', 'approved')
+                                                ->where('leave_type', 'Parental Leave')
+                                                ->get();
+                                                $daysOff = 0;
+                                                foreach ($approvedRequests as $request) {
+                                                    $start_date = \Carbon\Carbon::parse($request->start_date);
+                                                    $end_date = \Carbon\Carbon::parse($request->end_date);
+                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                }
+                                                echo $daysOff;
+                                            @endphp
+                                        </td>
 
+                                        <td class="px-20 py-6">
+                                            @php
+                                                $approvedRequests = $user->vacationRequests()->where('status', 'approved')
+                                                ->where('leave_type', 'Sick Leave')
+                                                ->get();
+                                                $daysOff = 0;
+                                                foreach ($approvedRequests as $request) {
+                                                    $start_date = \Carbon\Carbon::parse($request->start_date);
+                                                    $end_date = \Carbon\Carbon::parse($request->end_date);
+                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                }
+                                                echo $daysOff;
+                                            @endphp
+                                        </td>
+
+                                        <td class="px-20 py-6">
+                                            @php
+                                                $approvedRequests = $user->vacationRequests()->where('status', 'approved')
+                                                ->where('leave_type', 'Compassionate Leave')
+                                                ->get();
+                                                $daysOff = 0;
+                                                foreach ($approvedRequests as $request) {
+                                                    $start_date = \Carbon\Carbon::parse($request->start_date);
+                                                    $end_date = \Carbon\Carbon::parse($request->end_date);
+                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                }
+                                                echo $daysOff;
+                                            @endphp
+                                        </td>
+
+                                        <td class="px-20 py-6">
+                                            @php
+                                                $approvedRequests = $user->vacationRequests()->where('status', 'approved')
+                                                ->where('leave_type', 'Daily Rest')
+                                                ->get();
+                                                $daysOff = 0;
+                                                foreach ($approvedRequests as $request) {
+                                                    $start_date = \Carbon\Carbon::parse($request->start_date);
+                                                    $end_date = \Carbon\Carbon::parse($request->end_date);
+                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                }
+                                                echo $daysOff;
+                                            @endphp
+                                        </td>
+ 
                                     </tr>
                                     @endforeach
                                 </tbody>
