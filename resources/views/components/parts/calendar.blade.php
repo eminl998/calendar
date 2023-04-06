@@ -8,7 +8,7 @@
           <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
           <style>
             #calendar {
-              width: 900px;
+              width: 1000px;
               height: 700px;
             }
             .fc-day-sun {
@@ -20,6 +20,10 @@
             .fc-today {
               background-color: rgba(0, 255, 17, 0.125) !important;
             }
+            .fc-day-holiday {
+              background-color: rgba(33, 0, 152, 0.991) !important;
+            }
+            
           </style>
           <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -41,15 +45,23 @@
                 },
                 events: [
                   @foreach($approvedRequests as $request)
-                  @php
-                    $user = App\Models\User::find($request->user_id);
-                  @endphp
                   {
-                    title: '{{ $user->name }}',
+                    title: '{{ $request->user->name }}',
                     start: '{{ $request->start_date }}',
-                    end: '{{ $request->end_date }}',                      
+                    end: '{{ $request->end_date }}', 
                   },
                 @endforeach
+                @foreach($holidays as $holiday)
+                  {
+                    title: '{{ $holiday->title }}',
+                    start: '{{ $holiday->rest_date }}',
+                    end: '{{ $holiday->rest_date }}',
+                    className: 'fc-day-holiday',
+
+                    
+                  },
+                @endforeach
+                
                 
                 ]
               });

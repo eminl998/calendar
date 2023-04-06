@@ -12,7 +12,7 @@ class DashboardController extends Controller
     {
 
         $user = Auth::user();
-               
+
         if ($user->is_admin) {
             $pendingRequests = VacationRequest::where('status', 'pending')
                 ->get();
@@ -28,10 +28,12 @@ class DashboardController extends Controller
                 ->where('status', 'rejected')
                 ->get();
             $approvedRequests = VacationRequest::where('status', 'approved')
+                ->with('user')
                 ->get();
         }
 
-        return view('dashboard', compact('pendingRequests', 'approvedRequests', 'rejectedRequests'));
+        $holidays = HolidayVacation::get();
+        return view('dashboard', compact('pendingRequests', 'approvedRequests', 'rejectedRequests', 'holidays'));
     }
 
 
