@@ -34,6 +34,7 @@ class DashboardController extends Controller
         return view('dashboard', compact('pendingRequests', 'approvedRequests', 'rejectedRequests'));
     }
 
+
     public function approve(VacationRequest $request)
     {
         $request->status = 'approved';

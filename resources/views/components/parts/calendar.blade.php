@@ -37,7 +37,21 @@
                     classNames.push('fc-today');
                   }
                   return classNames;
-                }
+                },
+                events: [
+                  @foreach($approvedRequests as $request)
+                  @php
+                    $user = App\Models\User::find($request->user_id);
+                  @endphp
+                  {
+                    title: '{{ $user->name }}',
+                    start: '{{ $request->start_date }}',
+                    end: '{{ $request->end_date }}',                      
+                  },
+                @endforeach
+
+
+                ]
               });
               calendar.render();
             });
