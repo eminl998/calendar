@@ -26,6 +26,7 @@
               var calendarEl = document.getElementById('calendar');
               var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
+                firstDay: 1,
                 dayCellClassNames: function(info) {
                   var classNames = [];
                   if (info.date.getDay() === 0) {
