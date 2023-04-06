@@ -40,6 +40,7 @@
                                                 {{ $user->email }}
                                         </td>
 
+                                        {{-- Ktu nuk osht nrregull --}}
                                         <td class="px-20 py-6">
                                             {{ $user->vacationRequests()->where('status', 'approved')->count() }}
                                         </td>
