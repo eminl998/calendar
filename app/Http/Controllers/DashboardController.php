@@ -13,7 +13,6 @@ class DashboardController extends Controller
 
         $user = Auth::user();
                
-
         if ($user->is_admin) {
             $pendingRequests = VacationRequest::where('status', 'pending')
                 ->get();
