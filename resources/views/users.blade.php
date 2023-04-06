@@ -29,6 +29,7 @@
                                                 {{ $user->id }}
                                             </div>     
                                         </td>
+                                        
 
                                         <td class="px-20 py-6">
                                             <div class="">
@@ -47,7 +48,7 @@
                                                 foreach ($approvedRequests as $request) {
                                                     $start_date = \Carbon\Carbon::parse($request->start_date);
                                                     $end_date = \Carbon\Carbon::parse($request->end_date);
-                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                    $daysOff += $end_date->diffInDays($start_date);
                                                 }
                                                 echo $daysOff;
                                             @endphp
@@ -62,12 +63,12 @@
                                                 foreach ($approvedRequests as $request) {
                                                     $start_date = \Carbon\Carbon::parse($request->start_date);
                                                     $end_date = \Carbon\Carbon::parse($request->end_date);
-                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                    $daysOff += $end_date->diffInDays($start_date);
                                                 }
                                                 echo $daysOff;
                                             @endphp
                                         </td>
-                                        
+
                                         <td class="px-20 py-6">
                                             @php
                                                 $approvedRequests = $user->vacationRequests()->where('status', 'approved')
@@ -77,7 +78,7 @@
                                                 foreach ($approvedRequests as $request) {
                                                     $start_date = \Carbon\Carbon::parse($request->start_date);
                                                     $end_date = \Carbon\Carbon::parse($request->end_date);
-                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                    $daysOff += $end_date->diffInDays($start_date);
                                                 }
                                                 echo $daysOff;
                                             @endphp
@@ -92,7 +93,7 @@
                                                 foreach ($approvedRequests as $request) {
                                                     $start_date = \Carbon\Carbon::parse($request->start_date);
                                                     $end_date = \Carbon\Carbon::parse($request->end_date);
-                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                    $daysOff += $end_date->diffInDays($start_date);
                                                 }
                                                 echo $daysOff;
                                             @endphp
@@ -107,7 +108,7 @@
                                                 foreach ($approvedRequests as $request) {
                                                     $start_date = \Carbon\Carbon::parse($request->start_date);
                                                     $end_date = \Carbon\Carbon::parse($request->end_date);
-                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                    $daysOff += $end_date->diffInDays($start_date);
                                                 }
                                                 echo $daysOff;
                                             @endphp
@@ -122,7 +123,7 @@
                                                 foreach ($approvedRequests as $request) {
                                                     $start_date = \Carbon\Carbon::parse($request->start_date);
                                                     $end_date = \Carbon\Carbon::parse($request->end_date);
-                                                    $daysOff += $end_date->diffInDays($start_date) + 1;
+                                                    $daysOff += $end_date->diffInDays($start_date);
                                                 }
                                                 echo $daysOff;
                                             @endphp
@@ -140,4 +141,3 @@
         </div>
     </div>
 </x-app-layout>
-
