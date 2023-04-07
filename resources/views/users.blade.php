@@ -42,17 +42,9 @@
                                         </td>
 
                                         <td class="px-20 py-6">
-                                            @php
-                                                $approvedRequests = $user->vacationRequests()->where('status', 'approved')->get();
-                                                $daysOff = 0;
-                                                foreach ($approvedRequests as $request) {
-                                                    $start_date = \Carbon\Carbon::parse($request->start_date);
-                                                    $end_date = \Carbon\Carbon::parse($request->end_date);
-                                                    $daysOff += $end_date->diffInDays($start_date);
-                                                }
-                                                echo $daysOff;
-                                            @endphp
+                                            {{ $user->daysOff }}
                                         </td>
+
 
                                         <td class="px-20 py-6">
                                             @php

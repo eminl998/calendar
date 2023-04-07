@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
+        $holidays = HolidayVacation::get();
         $user = Auth::user();
 
         if ($user->is_admin) {
