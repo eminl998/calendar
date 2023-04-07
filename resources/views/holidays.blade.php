@@ -3,7 +3,7 @@
         @if (Auth::user()->is_admin == 1)
             <div class="py-1">
             @props(['disabled' => false])
-            
+            @include('vacation-requests.index')
 
             <div class="mt-1">
                 <div class="flex items-center justify-center mt-4 mb-4">
@@ -34,10 +34,6 @@
             </div> 
         @endif
 
-        
-
-
-        {{-- Shfaqja e Pushimeve --}}
         <div class="mx-auto mt-10   p-4">
             <div class="flex items-center justify-center mt-4 mb-4">    
                 @csrf
@@ -50,6 +46,9 @@
                                     <th class="py-4">Title</th>
                                     <th class="py-4">Holiday Date</th>
                                     <th class="py-4">Rest Date</th>
+                                    @if (Auth::user()->is_admin == 1)
+                                        <th class="py-4">Action</th>
+                                    @endif
                                 </tr>
                                 </thead>
 
@@ -69,6 +68,11 @@
                                         <td class="px-10 py-6">
                                                 {{ $holiday->rest_date }}
                                         </td>
+                                         @if (Auth::user()->is_admin == 1)
+                                         <td class="px-10 py-6">
+                                            Edit or Delete button
+                                         </td>
+                                         @endif
                                     </tr>
                                     @endforeach
                                 </tbody>

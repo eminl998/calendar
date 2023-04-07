@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/holidays', [HolidayVacationsController::class, 'index'])->name('holidays.index');
     Route::post('/holidays', [HolidayVacationsController::class, 'store'])->name('holidays.store');
+    Route::put('/holidays', [HolidayVacationsController::class, 'update'])->name('holidays.update');
     Route::delete('/holidays', [HolidayVacationsController::class, 'destroy'])->name('holidays.destroy');
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');

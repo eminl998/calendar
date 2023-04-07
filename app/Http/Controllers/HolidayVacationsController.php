@@ -31,18 +31,20 @@ class HolidayVacationsController extends Controller
     {
         $holiday = HolidayVacation::find($id);
         $holiday->title = $request->input('title');
-        $holiday->start_date = $request->input('start_date');
-        $holiday->end_date = $request->input('end_date');
+        $holiday->holiday_date = $request->input('holiday_date');
+        $holiday->rest_date = $request->input('rest_date');
         $holiday->save();
 
-        return redirect()->route('holidays')->with('success', 'Holiday updated successfully');
+        return redirect()->route('holidays.index')->with('success', 'Holiday updated successfully');
     }
+
 
     public function destroy($id)
     {
         $holiday = HolidayVacation::find($id);
         $holiday->delete();
 
-        return redirect()->route('holidays')->with('success', 'Holiday deleted successfully');
+        return response()->json(['success' => true]);
     }
+
 }
