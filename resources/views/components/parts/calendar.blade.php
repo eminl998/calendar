@@ -8,7 +8,7 @@
           <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js'></script>
           <style>
             #calendar {
-              width: 1000px;
+              width: 1200px;
               height: 700px;
             }
             .fc-day-sun {
@@ -21,7 +21,7 @@
               background-color: rgba(0, 255, 17, 0.125) !important;
             }
             .fc-day-holiday {
-              background-color: rgba(33, 0, 152, 0.991) !important;
+              background-color: rgba(30, 2, 133, 0.991) !important;
             }
             
           </style>
@@ -42,6 +42,12 @@
                     classNames.push('fc-today');
                   }
                   return classNames;
+                },
+                eventRender: function(info) {
+                  if (info.event.classNames.includes('fc-day-holiday')) {
+                    info.el.style.backgroundColor = 'rgba(55, 0, 253, 0.5)';
+                    info.el.style.borderRadius = '5px';
+                  }
                 },
                 events: [
                   @foreach($approvedRequests as $request)
