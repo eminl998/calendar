@@ -50,23 +50,27 @@
                   }
                 },
                 events: [
+                  @if (Auth::user())
+                    
+                  
                   @foreach($approvedRequests as $request)
                   {
                     title: '{{ $request->user->name }}',
                     start: '{{ $request->start_date }}',
                     end: '{{ $request->end_date }}', 
                   },
-                @endforeach
-                @foreach($holidays as $holiday)
-                  {
-                    title: '{{ $holiday->title }}',
-                    start: '{{ $holiday->rest_date }}',
-                    end: '{{ $holiday->rest_date }}',
-                    className: 'fc-day-holiday',
+                  @endforeach
+                  @foreach($holidays as $holiday)
+                    {
+                      title: '{{ $holiday->title }}',
+                      start: '{{ $holiday->rest_date }}',
+                      end: '{{ $holiday->rest_date }}',
+                      className: 'fc-day-holiday',
 
-                    
-                  },
-                @endforeach
+                      
+                    },
+                  @endforeach
+                  @endif
                 
                 
                 ]
