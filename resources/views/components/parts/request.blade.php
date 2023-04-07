@@ -120,32 +120,9 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if ($request->status == 'pending')
-                                        @if (Auth::user()->is_admin == 1)
-                                        <div class="flex flex-row">
-                                            <div>
-                                            <form method="POST" action="{{ route('vacation-requests.approve', $request->id) }}" class="inline">
-                                                @csrf
-                                                <button type="submit" class="text-green-500 mr-2">Accept</button>
-                                            </form>
-                                            </div>
-                                            <div class="ml-3">
-                                            <form method="POST" action="{{ route('vacation-requests.reject', $request->id) }}" class="inline">
-                                                @csrf
-                                                <button type="submit" class="text-red-500">Decline</button>
-                                            </form>
-                                            </div>
-                                        </div>
-                                        @else
-                                            <span class="text-gray-500">Pending approval</span>
-                                        @endif
-                                    @else
                                         @if ($request->status == 'approved')
                                             Approved on {{ $request->updated_at }}
-                                        @elseif ($request->status == 'rejected')
-                                            Rejected on {{ $request->updated_at }}
                                         @endif
-                                    @endif
                                 </td>
                             </tr>
                             @endforeach
@@ -180,32 +157,9 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if ($request->status == 'pending')
-                                        @if (Auth::user()->is_admin == 1)
-                                        <div class="flex flex-row">
-                                            <div>
-                                            <form method="POST" action="{{ route('vacation-requests.approve', $request->id) }}" class="inline">
-                                                @csrf
-                                                <button type="submit" class="text-green-500 mr-2">Accept</button>
-                                            </form>
-                                            </div>
-                                            <div class="ml-3">
-                                            <form method="POST" action="{{ route('vacation-requests.reject', $request->id) }}" class="inline">
-                                                @csrf
-                                                <button type="submit" class="text-red-500">Decline</button>
-                                            </form>
-                                            </div>
-                                        </div>
-                                        @else
-                                            <span class="text-gray-500">Pending approval</span>
-                                        @endif
-                                    @else
-                                        @if ($request->status == 'approved')
-                                            Approved on {{ $request->updated_at }}
-                                        @elseif ($request->status == 'rejected')
+                                        @if ($request->status == 'rejected')
                                             Rejected on {{ $request->updated_at }}
                                         @endif
-                                    @endif
                                 </td>
                             </tr>
                             @endforeach
