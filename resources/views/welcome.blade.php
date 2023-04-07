@@ -27,7 +27,7 @@
             @endif
                 {{-- Kalendari --}}
                 <div class="max-w-7xl mx-auto p-6 lg:p-8 bg-gray-100 dark:bg-gray-800 text-black dark:text-red-500 rounded-md">
-                    @include('components.parts.calendar')
+                    @include('components.parts.calendar1')
                 </div>
         </div>
     </body>
