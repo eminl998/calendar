@@ -120,9 +120,9 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                        @if ($request->status == 'approved')
-                                            Approved on {{ $request->updated_at }}
-                                        @endif
+                                    @if ($request->status == 'approved')
+                                        Approved on {{ $request->updated_at }}
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
@@ -157,9 +157,9 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                        @if ($request->status == 'rejected')
-                                            Rejected on {{ $request->updated_at }}
-                                        @endif
+                                    @if ($request->status == 'rejected')
+                                        Rejected on {{ $request->updated_at }}
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
