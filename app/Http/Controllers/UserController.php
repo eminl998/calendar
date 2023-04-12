@@ -49,27 +49,29 @@ class UserController extends Controller
         return $daysOff;
     }
 
-    public function downloadPdf($email)
-    {
-        // Find the user by email
-        $user = User::where('email', $email)->firstOrFail();
 
-        // Generate the PDF content using Dompdf
-        $pdf = new Dompdf();
-        $pdf->loadHtml(view('users.pdf', compact('user')));
+    
+    // public function downloadPdf($email)
+    // {
+    //     // Find the user by email
+    //     $user = User::where('email', $email)->firstOrFail();
 
-        // Set paper size and orientation
-        $pdf->setPaper('A4', 'portrait');
+    //     // Generate the PDF content using Dompdf
+    //     $pdf = new Dompdf();
+    //     $pdf->loadHtml(view('users.pdf', compact('user')));
 
-        // Render the PDF document
-        $pdf->render();
+    //     // Set paper size and orientation
+    //     $pdf->setPaper('A4', 'portrait');
 
-        // Set the PDF filename
-        $filename = $user->name . '_details.pdf';
+    //     // Render the PDF document
+    //     $pdf->render();
 
-        // Return the PDF document as a response
-        return $pdf->stream($filename);
-    }
+    //     // Set the PDF filename
+    //     $filename = $user->name . '_details.pdf';
+
+    //     // Return the PDF document as a response
+    //     return $pdf->stream($filename);
+    // }
 
 
 }
