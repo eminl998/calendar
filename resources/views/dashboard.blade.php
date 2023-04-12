@@ -1,6 +1,5 @@
 <x-app-layout>
-    <div class="py-12">
-        
+    <div class="py-12">  
         <div>
             
             {{-- FLASH MESSAGE --}}
@@ -21,11 +20,10 @@
             {{-- Shfaqja e kerkesave --}}
             <div  class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
                 @include('components.parts.request')
-            </div>
+            </div>  
 
-            
         </div>
-
     </div>
+
 </x-app-layout>
 
