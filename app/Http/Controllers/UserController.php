@@ -49,36 +49,41 @@ class UserController extends Controller
         return $daysOff;
     }
 
-    public function downloadPdf(Request $request, $email)
-{
-    // Get the user data from your database
-    $user1 = User::where('email', $email)->first();
+    public function downloadPdf($email)
+    {
+        // Fetch the user by email
+        $user = User::where('email', $email)->first();
+        
 
-    if (!$user1) {
-        abort(404);
+        // If the user does not exist, abort with 404 error
+        if (!$user) {
+            abort(404);
+        }
+
+        // Pass the user data to the view
+        $data = [
+            'user' => $user,
+            'daysOff' => [
+                'Annual leave' => $user->daysOff['Annual leave'],
+                'Parental leave' => $user->daysOff['Parental leave'],
+                'Sick leave' => $user->daysOff['Sick leave'],
+                'Compassionate leave' => $user->daysOff['Compassionate leave'],
+                'Daily rest' => $user->daysOff['Daily rest'],
+            ]
+        ];
+
+        // Render the view as a PDF using Dompdf
+        $pdf = new Dompdf();
+        $pdf->loadView('users', $data);
+        $pdf->setPaper('A4', 'portrait');
+        $pdf->render();
+
+        // Generate a unique filename for the PDF
+        $filename = 'user-' . $user->id . '-' . date('YmdHis') . '.pdf';
+
+        // Return the PDF as a download
+        return $pdf->download($filename);
     }
-
-    // Generate the HTML table as you did before
-    $table = view('users', compact('users'))->render();
-
-    // Create a new instance of Dompdf class
-    $pdf = new Dompdf();
-
-    // Load the HTML content into the PDF generator
-    $pdf->loadHtml($table);
-
-    // Set the paper size and orientation
-    $pdf->setPaper('A4', 'portrait');
-
-    // Render the PDF
-    $pdf->render();
-
-    // Generate a unique filename for the PDF
-    $filename = 'user-' . $user1->id . '-' . date('YmdHis') . '.pdf';
-
-    // Return the PDF as a download
-    return $pdf->stream($filename);
-}
 
 
 }
