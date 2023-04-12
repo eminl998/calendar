@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/holidays/{title}', [HolidayVacationsController::class, 'destroy'])->name('holidays.destroy');
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/users/{email}/download-pdf', [UserController::class, 'downloadPdf'])->name('users.downloadPdf');
+    Route::get('/users/{email}/pdf', [UserController::class, 'downloadPdf'])->name('users.downloadPdf');
 
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

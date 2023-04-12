@@ -51,38 +51,24 @@ class UserController extends Controller
 
     public function downloadPdf($email)
     {
-        // Fetch the user by email
-        $user = User::where('email', $email)->first();
-        
+        // Find the user by email
+        $user = User::where('email', $email)->firstOrFail();
 
-        // If the user does not exist, abort with 404 error
-        if (!$user) {
-            abort(404);
-        }
-
-        // Pass the user data to the view
-        $data = [
-            'user' => $user,
-            'daysOff' => [
-                'Annual leave' => $user->daysOff['Annual leave'],
-                'Parental leave' => $user->daysOff['Parental leave'],
-                'Sick leave' => $user->daysOff['Sick leave'],
-                'Compassionate leave' => $user->daysOff['Compassionate leave'],
-                'Daily rest' => $user->daysOff['Daily rest'],
-            ]
-        ];
-
-        // Render the view as a PDF using Dompdf
+        // Generate the PDF content using Dompdf
         $pdf = new Dompdf();
-        $pdf->loadView('users', $data);
+        $pdf->loadHtml(view('users.pdf', compact('user')));
+
+        // Set paper size and orientation
         $pdf->setPaper('A4', 'portrait');
+
+        // Render the PDF document
         $pdf->render();
 
-        // Generate a unique filename for the PDF
-        $filename = 'user-' . $user->id . '-' . date('YmdHis') . '.pdf';
+        // Set the PDF filename
+        $filename = $user->name . '_details.pdf';
 
-        // Return the PDF as a download
-        return $pdf->download($filename);
+        // Return the PDF document as a response
+        return $pdf->stream($filename);
     }
 
 

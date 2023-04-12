@@ -5,7 +5,6 @@
                 @csrf
                 <div class="text-center lg:flex lg:items-center justify-between">
                     <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6  p-4">
-                        
                         <div class="section bg-gray-300 dark:bg-gray-150 mr-4 p-2 rounded-xl">
                             <table class="w-full text-sm text-centre text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
@@ -68,7 +67,7 @@
                                         </td>
 
                                         <td class="px-10 py-6">
-                                            <a href="{{ route('users.downloadPdf', $user->email) }}">Download as PDF</a>
+                                            <a href="{{ route('users.downloadPdf', ['email' => $user->email]) }}">Download as PDF</a>
                                         </td>
  
                                     </tr>
