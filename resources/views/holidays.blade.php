@@ -53,7 +53,7 @@
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($holidays as $holiday)
+                                    @foreach ($holidays->sortBy('holiday_date') as $holiday)
                                     <tr class="bg-white  dark:bg-gray-800  hover:bg-gray-100 dark:hover:bg-gray-600">
                                         <td class="flex items-center px-8 py-8 text-gray-800 whitespace-nowrap dark:text-white">
                                             <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">

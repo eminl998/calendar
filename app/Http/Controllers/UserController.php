@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\HolidayVacation;
 use App\Models\User;
-use App\Models\VacationRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Dompdf\Dompdf;
 
 class UserController extends Controller
 {
@@ -48,4 +48,37 @@ class UserController extends Controller
         }
         return $daysOff;
     }
+
+    public function downloadPdf(Request $request, $email)
+{
+    // Get the user data from your database
+    $user1 = User::where('email', $email)->first();
+
+    if (!$user1) {
+        abort(404);
+    }
+
+    // Generate the HTML table as you did before
+    $table = view('users', compact('users'))->render();
+
+    // Create a new instance of Dompdf class
+    $pdf = new Dompdf();
+
+    // Load the HTML content into the PDF generator
+    $pdf->loadHtml($table);
+
+    // Set the paper size and orientation
+    $pdf->setPaper('A4', 'portrait');
+
+    // Render the PDF
+    $pdf->render();
+
+    // Generate a unique filename for the PDF
+    $filename = 'user-' . $user1->id . '-' . date('YmdHis') . '.pdf';
+
+    // Return the PDF as a download
+    return $pdf->stream($filename);
+}
+
+
 }

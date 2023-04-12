@@ -18,6 +18,7 @@
                                     <th class="py-4">Sick leave</th>
                                     <th class="py-4">Compassionate leave</th>
                                     <th class="py-4">Daily rest</th>
+                                    <th class="py-4">Download</th>
                                 </tr>
                                 </thead>
 
@@ -62,6 +63,10 @@
 
                                         <td class="px-20 py-6">
                                             {{ $user->daysOff['Daily rest'] }}
+                                        </td>
+
+                                        <td class="px-10 py-6">
+                                            <a href="{{ route('users.downloadPdf', $user->email) }}">Download as PDF</a>
                                         </td>
  
                                     </tr>
