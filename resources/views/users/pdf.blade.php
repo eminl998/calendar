@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Report</title>
     <style>
-      /* Add some basic styling */
       body {
         font-family: sans-serif;
         margin: 0;
@@ -14,6 +13,7 @@
       h1 {
         font-size: 2rem;
         margin-bottom: 1rem;
+        color:rgb(65, 65, 65);
       }
       table {
         border-collapse: collapse;
@@ -33,15 +33,15 @@
       }
     </style>
   </head>
-  <body>
-    <h1>{{ $user->name }}</h1>
-    <p>Email: {{ $user->email }}</p>
-    <p>Total Days Off: {{ 
-      $user->daysOff['Annual leave'] + 
-      $user->daysOff['Parental leave'] + 
-      $user->daysOff['Sick leave'] + 
-      $user->daysOff['Compassionate leave'] + 
-      $user->daysOff['Daily rest'] 
+    <body>
+    <h1 style="font-size:15px">{{ $user->name }}</h1>
+    <p style="font-size:13px">Email: {{ $user->email }}</p>
+    <p style="font-size:15px">Total Days Off: {{
+      $user->daysOff['Annual leave'] +
+      $user->daysOff['Parental leave'] +
+      $user->daysOff['Sick leave'] +
+      $user->daysOff['Compassionate leave'] +
+      $user->daysOff['Daily rest']
     }}</p>
     <table>
       <thead>
@@ -61,6 +61,11 @@
           <td>{{ $user->daysOff['Compassionate leave'] }}</td>
           <td>{{ $user->daysOff['Daily rest'] }}</td>
         </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+
         {{-- <tr>
           <td>Remaining</td>
           <td>{{ $user->daysOff['Annual leave remaining'] }}</td>
@@ -69,7 +74,3 @@
           <td>{{ $user->daysOff['Compassionate leave remaining'] }}</td>
           <td>{{ $user->daysOff['Daily rest remaining'] }}</td>
         </tr> --}}
-      </tbody>
-    </table>
-  </body>
-</html>
