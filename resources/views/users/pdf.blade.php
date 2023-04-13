@@ -13,9 +13,13 @@
         }
 
         h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: dark-gray;
+            font-size: 17px;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            color: rgb(53, 53, 53);
+            text-align: center;
+            text-transform: uppercase;
+
         }
 
         table {
@@ -33,19 +37,29 @@
         th {
             background-color: #eee;
             text-transform: uppercase;
+            font-size: 10px;
         }
 
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+
+        p {
+            font-size: 15px;
+        }
     </style>
 </head>
 
 <body>
-    <h1 style="font-size:17px">{{ $user->name }}</h1>
-    <p style="font-size:13px">Email: {{ $user->email }}</p>
-    <p style="font-size:15px">Total Days Off: {{ $user->daysOff['Annual leave'] + $user->daysOff['Parental leave'] + $user->daysOff['Sick leave'] + $user->daysOff['Compassionate leave'] + $user->daysOff['Daily rest'] }}
-    </p>
+    <h1>INFORMATAT E PUNËTORIT</h1>
+
+    <p>Emri dhe Mbiemri: {{ $user->name }}</p>
+    <p>Email: {{ $user->email }}</p>
+    <p>Numri i ID-së: {{$user->id}}</p>
+    <p>Pozita e Punën: COMMING SOON </p>
+
+    <h1>Pushimet e aprovuara</h1>
+
     <table>
         <thead>
             <tr>
@@ -54,6 +68,7 @@
                 <th>Sick Leave</th>
                 <th>Compassionate Leave</th>
                 <th>Daily Rest</th>
+                <th>Total Days Off</th>
             </tr>
         </thead>
         <tbody>
@@ -63,6 +78,8 @@
                 <td>{{ $user->daysOff['Sick leave'] }}</td>
                 <td>{{ $user->daysOff['Compassionate leave'] }}</td>
                 <td>{{ $user->daysOff['Daily rest'] }}</td>
+                <td>{{ $user->daysOff['Annual leave'] + $user->daysOff['Parental leave'] + $user->daysOff['Sick leave'] + $user->daysOff['Compassionate leave'] + $user->daysOff['Daily rest'] }}
+                </td>
             </tr>
 
         </tbody>
