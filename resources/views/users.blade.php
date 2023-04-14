@@ -1,7 +1,7 @@
 <x-app-layout>
         {{-- Shfaqja e Userave --}}
         <div class="mx-auto mt-10   p-4">
-            <div class="flex items-center justify-center mt-4 mb-4">    
+            <div class="flex items-center justify-center mt-4 mb-4">
                 @csrf
                 <div class="text-center lg:flex lg:items-center justify-between">
                     <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6  p-4">
@@ -24,12 +24,12 @@
 
                                 <tbody>
                                     @foreach ($users as $user)
-                                    
+
                                     <tr class="bg-white  dark:bg-gray-800  hover:bg-gray-100 dark:hover:bg-gray-600">
                                         <td class="flex items-center px-8 py-8 text-gray-800 whitespace-nowrap dark:text-white">
                                             <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
                                                 {{ $user->id }}
-                                            </div>     
+                                            </div>
                                         </td>
 
                                         <td class="px-20 py-6">
@@ -67,18 +67,23 @@
                                         </td>
 
                                         <td class="px-10 py-6">
-                                            <a href="{{ route('users.downloadPdf', ['email' => $user->email]) }}">Download as PDF</a>
+                                            <a href="{{ route('users.downloadPdf', ['email' => $user->email]) }}" download>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                <path fill="currentColor" d="M13,0H3C1.9,0,1,0.9,1,2v12c0,1.1,0.9,2,2,2h10c1.1,0,2-0.9,2-2V3L13,0z M11,12H5v-1h6V12z M11,10H5v-1h6V10z M11,8H5V7h6V8z M11,5H5V4h6V5z"/>
+                                                <path fill="currentColor" d="M8,11.6L4.7,8.3c-0.4-0.4-0.4-1,0-1.4s1.1-0.4,1.4,0L8,9.8l2.9-2.9c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4L8,11.6z"/>
+                                                </svg>
+                                            </a>
                                         </td>
- 
+                                        
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        
+
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 </x-app-layout>

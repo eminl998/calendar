@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Report</title>
@@ -51,24 +52,75 @@
 </head>
 
 <body>
+
+    <div>
+        <img src="/images/zslogo.png" alt="Logo" />
+    </div>
+
+
     <h1>INFORMATAT E PUNËTORIT</h1>
 
-    <p>Emri dhe Mbiemri: {{ $user->name }}</p>
-    <p>Email: {{ $user->email }}</p>
-    <p>Numri i ID-së: {{$user->id}}</p>
-    <p>Pozita e Punën: COMMING SOON </p>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <div>Name and Surname</div>
+                    <div>Emri dhe Mbiemri</div>
+                </th>
+                <th>
+                    <div>Email</div>
+                </th>
+                <th>
+                    <div>ID number</div>
+                    <div>Numri i ID-së</div>
+                </th>
+                <th>
+                    <div>Working position</div>
+                    <div>Pozita e Punës</div>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->id }}</td>
+                <td>COMMING SOON</td>
+            </tr>
+
+        </tbody>
+    </table>
 
     <h1>Pushimet e aprovuara</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Annual Leave</th>
-                <th>Parental Leave</th>
-                <th>Sick Leave</th>
-                <th>Compassionate Leave</th>
-                <th>Daily Rest</th>
-                <th>Total Days Off</th>
+                <th>
+                    <div>Annual Leave</div>
+                    <div>Pushim vjetor</div>
+                </th>
+                <th>
+                    <div>Parental Leave</div>
+                    <div>Pushim familjar</div>
+                </th>
+                <th>
+                    <div>Sick Leave</div>
+                    <div>Pushim mjekësor</div>
+                </th>
+                <th>
+                    <div>Compassionate Leave</div>
+                    <div>Pushim gjatë rasteve vdekje</div>
+                </th>
+                <th>
+                    <div>Daily Rest</div>
+                    <div>Pushim ditor</div>
+                </th>
+                <th>
+                    <div>Total Days Off</div>
+                    <div>Gjithsej ditë pushimi</div>
+                </th>
             </tr>
         </thead>
         <tbody>
