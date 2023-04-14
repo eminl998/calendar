@@ -12,6 +12,7 @@
                                     <th class="py-4">ID</th>
                                     <th class="py-4">Name</th>
                                     <th class="py-4">Email</th>
+                                    <th class="py-4">Working position</th>
                                     <th class="py-4">Day off's</th>
                                     <th class="py-4">Annual Leave</th>
                                     <th class="py-4">Parental leave</th>
@@ -33,13 +34,15 @@
                                         </td>
 
                                         <td class="px-20 py-6">
-                                            <div class="">
                                                 {{ $user->name }}
-                                            </div>
                                         </td>
 
-                                        <td class="px-20 py-6">
+                                        <td class="px-15 py-6">
                                                 {{ $user->email }}
+                                        </td>
+
+                                        <td class="px-15 py-6">
+                                                {{ $user->position }}
                                         </td>
 
                                         <td class="px-20 py-6">
@@ -74,7 +77,7 @@
                                                 </svg>
                                             </a>
                                         </td>
-                                        
+
                                     </tr>
                                     @endforeach
                                 </tbody>
