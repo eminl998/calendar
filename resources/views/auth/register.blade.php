@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @if (Auth::check() && Auth::user()->is_admin == 1)
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -57,4 +58,7 @@
             </x-primary-button>
         </div>
     </form>
+    @else
+    You are not authorised for this page
+    @endif
 </x-guest-layout>
