@@ -1,11 +1,16 @@
 <x-app-layout>
     {{-- Shfaqja e Userave --}}
+    @if (Auth::check() && Auth::user()->is_admin == 1)
     <div class="mx-auto mt-10   p-4">
+
         <div class="flex items-center justify-center mt-4 mb-4">
             @csrf
             <div class="text-center lg:flex lg:items-center justify-between">
                 <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6  p-4">
                     <div class="section bg-gray-300 dark:bg-gray-150 mr-4 p-2 rounded-xl">
+                        <div class="text-right mb-2 mr-2">
+                            <a href="{{ route('register') }}" class="inline-block px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md">Register New User</a>
+                        </div>
                         <table class="w-full text-sm text-centre text-gray-500 dark:text-gray-400">
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
@@ -91,5 +96,9 @@
             </div>
         </div>
     </div>
+    @else
+    <div class="mr-4">
+    You are not authorised for this page
     </div>
+    @endif
 </x-app-layout>

@@ -1,6 +1,6 @@
 <x-app-layout>
 
-        @if (Auth::user()->is_admin == 1)
+        @if (Auth::check() && Auth::user()->is_admin == 1)
             <div class="py-1">
             @props(['disabled' => false])
             @include('vacation-requests.index')
@@ -8,9 +8,7 @@
             <div class="mt-1">
 
                 <div class="flex items-center justify-center mt-4 mb-4">
-                    <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        @include('components.parts.sidebar')
-                    </div>
+
                     <form method="POST" action="{{ route('holidays.store') }}" class="">
                         @csrf
                         <div class="text-center lg:flex lg:items-center justify-between">
@@ -39,6 +37,9 @@
         @endif
 
         <div class="mx-auto mt-10   p-4">
+            <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                        @include('components.parts.sidebar')
+                    </div>
             <div class="flex items-center justify-center mt-4 mb-4">
                 @csrf
                 <div class="text-center lg:flex lg:items-center justify-between">
