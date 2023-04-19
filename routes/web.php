@@ -61,8 +61,11 @@ Route::middleware('auth')->group(function () {
         ->name('users.downloadPdf');
     Route::post('/users', [UserController::class, 'store'])
         ->name('users.store');
+    Route::get('search', [UserController::class, 'search'])
+        ->name('users.search');
     Route::delete('/users/{name}', [UserController::class, 'destroy'])
         ->name('users.destroy');
+
 
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');

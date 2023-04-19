@@ -7,14 +7,41 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Dompdf\Dompdf;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        $query = $request->input('query');
+
+        $users = $this->fetchUsers($query);
+
+        return view('users', ['users' => $users]);
+    }
+
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $users = $this->fetchUsers($query);
+
+        return view('users', ['users' => $users, 'query' => $query]);
+    }
+
+    private function fetchUsers($query = null)
+    {
+        $perPage = 10; // Number of users to display per page
+        $usersQuery = User::query();
+
+        if ($query) {
+            $usersQuery->where('name', 'like', '%' . $query . '%');
+        }
+
+        $users = $usersQuery->paginate($perPage);
 
         foreach ($users as $user) {
             $approvedRequests = $user->vacationRequests()->where('status', 'approved')->get();
@@ -27,8 +54,10 @@ class UserController extends Controller
             $user->daysOff = $daysOff;
         }
 
-        return view('users', ['users' => $users]);
+        return $users;
     }
+
+
 
     private function getDaysOffForLeaveType($user, $leaveType)
     {
@@ -84,6 +113,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        try {
         $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -93,7 +123,19 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('users.index')->with('success', 'User registered successfully');
+        } catch (QueryException $e) {
+        // Check if the exception was caused by a unique constraint violation
+        if ($e->getCode() == 23000) {
+            // Return a flash message indicating that the email address is already in use
+            return redirect()->back()->withInput()->withErrors(['email' => 'This email address is already in use.']);
+        } else {
+            // Rethrow the exception if it was caused by something else
+            throw $e;
+        }
     }
+    }
+
+
 
     public function destroy($name)
     {
