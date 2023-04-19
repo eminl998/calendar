@@ -59,6 +59,10 @@ Route::middleware('auth')->group(function () {
         ->name('users.index');
     Route::get('/users/{email}/pdf', [UserController::class, 'downloadPdf'])
         ->name('users.downloadPdf');
+    Route::post('/users', [UserController::class, 'store'])
+        ->name('users.store');
+    Route::delete('/users/{name}', [UserController::class, 'destroy'])
+        ->name('users.destroy');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');

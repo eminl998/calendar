@@ -7,6 +7,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Dompdf\Dompdf;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -81,6 +82,27 @@ class UserController extends Controller
         return $pdf->stream($filename);
     }
 
+    public function store(Request $request)
+    {
+        $user = new User;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->is_admin = $request->input('is_admin');
+        $user->position = $request->input('position');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'User registered successfully');
+    }
+
+    public function destroy($name)
+    {
+        $holiday = User::find($name);
+        $holiday->delete();
+
+        return redirect()->route('users.index')->with('success', 'User removed successfully');
+        ;
+    }
 
 
 }

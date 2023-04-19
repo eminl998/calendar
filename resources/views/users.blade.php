@@ -8,9 +8,9 @@
             <div class="text-center lg:flex lg:items-center justify-between">
                 <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6  p-4">
                     <div class="section bg-gray-300 dark:bg-gray-150 mr-4 p-2 rounded-xl">
-                        <div class="text-right mb-2 mr-2">
+                        {{-- <div class="text-right mb-2 mr-2">
                             <a href="{{ route('register') }}" class="inline-block px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md">Register New User</a>
-                        </div>
+                        </div> --}}
                         <table class="w-full text-sm text-centre text-gray-500 dark:text-gray-400">
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
@@ -85,11 +85,68 @@
                                                     </svg>
                                                 </a>
                                             </div>
+                                            <div>
+                                                <form method="POST" action="{{ route('users.destroy', $user->id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm hover:bg-red-500 hover:text-white font-bold py-2 px-4">Delete</button>
+                                            </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="py-1">
+                        @props(['disabled' => false])
+                        @include('vacation-requests.index')
+
+                        <!-- Regjistrimi i Userit te ri -->
+                        <div class="mt-1">
+
+                            <div class="flex items-center justify-center mt-4 mb-4">
+
+                            <form method="POST" action="{{ route('users.store') }}">
+                            @csrf
+                                <div class="mt-1">
+                                    <div class="flex items-center justify-center mt-4 mb-4">
+                                        <div class="text-center lg:flex lg:items-center justify-between">
+                                            <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+                                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                                    <label for="name">Name:</label>
+                                                    <input type="text" name="name" id="name" {!! $attributes->merge(['class' => 'h-10 border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!} value="{{ old('name') }}" required>
+                                                </div>
+                                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                                    <label for="email">Email:</label>
+                                                    <input type="email" name="email" id="email" {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!} value="{{ old('email') }}" required>
+                                                </div>
+                                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                                    <label for="is_admin">Is Admin:</label>
+                                                    <select name="is_admin" id="is_admin" {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!} required>
+                                                        <option value="0" {{ old('is_admin') == '0' ? 'selected' : '' }}>No</option>
+                                                        <option value="1" {{ old('is_admin') == '1' ? 'selected' : '' }}>Yes</option>
+                                                    </select>
+                                                </div>
+                                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                                    <label for="position">Position:</label>
+                                                    <input type="text" name="position" id="position" {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!} value="{{ old('position') }}" required>
+                                                </div>
+                                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                                    <label for="password">Password:</label>
+                                                    <input type="password" name="password" id="password" {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!} required>
+                                                </div>
+
+                                                <div class="mt-1 leading-tight">
+                                                    <button type="submit" class="border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm hover:bg-indigo-500 hover:text-white font-bold py-2 px-4 mt-5 ">Register New User</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
