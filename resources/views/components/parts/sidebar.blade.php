@@ -1,6 +1,6 @@
-<aside id="default-sidebar" class="fixed top-15 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-  <div class="h-fulll px-3 py-4 overflow-y-auto bg-gray-300 dark:bg-gray-900 rounded-lg">
-    <ul class="mt-3 space-y-2 font-medium">
+<aside id="default-sidebar" class="fixed top-15 left-0 z-40  h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+  <div class="h-fulll px-2 py-2 overflow-y-auto bg-gray-300 dark:bg-gray-900 rounded-lg">
+    <ul class=" space-y-2 font-medium">
       @include('components.parts.sidebarRows.sidebarRows')
     </ul>
   </div>
@@ -10,7 +10,7 @@
 <style>
   .handle {
     cursor: grab;
-    padding: 2px;
+    padding: 3px;
   }
   .handle:active {
     cursor: grabbing;
@@ -33,6 +33,7 @@
 const handle = document.querySelector('.handle');
 const sidebar = document.querySelector('#default-sidebar');
 const minimizeButton = document.querySelector('#minimize-sidebar');
+
 
 let isDragging = false;
 let isMinimized = false;
@@ -87,12 +88,6 @@ if (savedPosition) {
 minimizeButton.addEventListener('click', () => {
   isMinimized = true;
   sidebar.style.transform = `translateX(-${sidebar.offsetWidth}px)`;
-});
-
-// Maximize button
-maximizeButton.addEventListener('click', () => {
-  isMinimized = false;
-  sidebar.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
 });
 
 </script>

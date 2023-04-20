@@ -1,12 +1,14 @@
 <x-app-layout>
     {{-- Shfaqja e Userave --}}
     @if (Auth::check() && Auth::user()->is_admin == 1)
-        <div class="mx-auto mt-10   p-4">
+        <div class="mx-auto mt-3 p-2">
+            @include("components.parts.sidebar")
 
         <div class="flex items-center justify-center mt-4 mb-4">
             @csrf
             <div class="text-center lg:flex lg:items-center justify-between">
                 <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6  p-4">
+
                     <div class="section bg-gray-300 dark:bg-gray-150 mr-4 p-2 rounded-xl">
                         <div class="text-right mb-2 mr-2">
                             <form action="{{ route('users.search') }}" method="GET">

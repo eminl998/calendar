@@ -1,4 +1,4 @@
-<div class="mb-10 mt-10">
+<div class="mb-3 mt-4">
   <div class="mt-3" style="display: flex;justify-content:center;align-items:center ">
     <div class="bg-white dark:bg-gray-800 text-black dark:text-white px-4 py-6 rounded-lg">
       <!DOCTYPE html>
@@ -23,7 +23,7 @@
             .fc-day-holiday {
               background-color: rgba(30, 2, 133, 0.991) !important;
             }
-            
+
           </style>
           <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -55,7 +55,7 @@
                     {
                       title: '{{ $request->user->name }}',
                       start: '{{ $request->start_date }}',
-                      end: '{{ $request->end_date }}', 
+                      end: '{{ $request->end_date }}',
                     },
                     @endforeach
                     @foreach($holidays as $holiday)
@@ -64,12 +64,12 @@
                         start: '{{ $holiday->rest_date }}',
                         end: '{{ $holiday->rest_date }}',
                         className: 'fc-day-holiday',
-   
+
                       },
                     @endforeach
                   @endif
-                
-                
+
+
                 ]
               });
               calendar.render();

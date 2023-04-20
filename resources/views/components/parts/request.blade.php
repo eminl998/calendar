@@ -1,6 +1,6 @@
 @props(['disabled' => false])
-<div class="mx-auto mt-10   p-4">
-    <div class="flex items-center justify-center mt-4 mb-4">    
+<div class="mx-auto mt-1 p-4">
+    <div class="flex items-center justify-center mt-4 mb-4">
         @csrf
         <div class="text-center lg:flex lg:items-center justify-between">
             <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6  p-4">
@@ -39,7 +39,7 @@
                                                 {{ $user->name }}
                                             </div>
                                         @endif
-                                    </div>     
+                                    </div>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
@@ -104,7 +104,7 @@
                                                 {{ $user->name }}
                                             </div>
                                         @endif
-                                    </div>     
+                                    </div>
                                 </td>
                                 <td class="px-6 py-4">
                                         <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
@@ -141,7 +141,7 @@
                                                 {{ $user->name }}
                                             </div>
                                         @endif
-                                    </div>     
+                                    </div>
                                 </td>
                                 <td class="px-6 py-4">
                                         <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
@@ -166,8 +166,8 @@
                         </tbody>
                     </table>
                 </div>
-                
+
             </div>
         </div>
-    </div> 
+    </div>
 </div>
