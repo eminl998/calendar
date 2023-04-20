@@ -21,7 +21,7 @@
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
                                 <tr>
-                                    <th class="py-4">ID</th>
+                                    {{-- <th class="py-4">ID</th> --}}
                                     <th class="py-4">Name</th>
                                     <th class="py-4">Working position</th>
                                     <th class="py-4">Day off's</th>
@@ -37,20 +37,20 @@
                             <tbody>
                                 @if(count($users) == 0)
                                     <tr>
-                                        <td colspan="10" class="text-center py-8">
+                                        <td colspan="10" class="text-center py-8 font-semibold text-gray-800 dark:text-gray-200">
                                             No results found.
                                         </td>
                                     </tr>
                                 @else
                                 @foreach ($users as $user)
                                     <tr class="bg-white  dark:bg-gray-800  hover:bg-gray-100 dark:hover:bg-gray-600">
-                                        <td class="flex items-center px-8 py-8 text-gray-800 whitespace-nowrap dark:text-white">
+                                        {{-- <td class="flex items-center px-8 py-8 text-gray-800 whitespace-nowrap dark:text-white">
                                             <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
                                                 {{ $user->id }}
                                             </div>
-                                        </td>
+                                        </td> --}}
 
-                                        <td class="px-20 py-6">
+                                        <td class="font-bold px-20 py-6">
                                             {{ $user->name }}
                                         </td>
 
