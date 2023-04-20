@@ -26,6 +26,16 @@ class VacationRequestController extends Controller
             ]
         ]);
 
+        $existingRequest = VacationRequest::where('user_id', auth()->id())
+            ->where('start_date', $request->input('start_date'))
+            ->where('end_date', $request->input('end_date'))
+            ->where('leave_type', $request->input('leave_type'))
+            ->first();
+
+        if ($existingRequest) {
+            return redirect()->back()->withErrors('You have already submitted this vacation request.');
+        }
+
         $vacationRequest = new VacationRequest([
             'start_date' => $request->input('start_date'),
             'end_date' => $request->input('end_date'),

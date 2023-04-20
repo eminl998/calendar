@@ -120,9 +120,7 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if ($request->status == 'approved')
-                                        Approved on {{ $request->updated_at }}
-                                    @endif
+                                    Approved on {{ $request->updated_at }}
                                 </td>
                             </tr>
                             @endforeach
@@ -144,9 +142,9 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                        <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
-                                             {{ $request->start_date }} to {{ $request->end_date }}
-                                        </div>
+                                    <div class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                            {{ $request->start_date }} to {{ $request->end_date }}
+                                    </div>
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $request->leave_type }}
@@ -157,9 +155,7 @@
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">
-                                    @if ($request->status == 'rejected')
-                                        Rejected on {{ $request->updated_at }}
-                                    @endif
+                                    Rejected on {{ $request->updated_at }}
                                 </td>
                             </tr>
                             @endforeach

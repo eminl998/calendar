@@ -1,13 +1,13 @@
 <x-app-layout>
     {{-- Shfaqja e Userave --}}
     @if (Auth::check() && Auth::user()->is_admin == 1)
-        <div class="mx-auto mt-3 p-2">
+        <div class="mx-auto">
             @include("components.parts.sidebar")
 
-        <div class="flex items-center justify-center mt-4 mb-4">
+        <div class="flex items-center justify-center mt-2 mb-4">
             @csrf
             <div class="text-center lg:flex lg:items-center justify-between">
-                <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6  p-4">
+                <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 p-4">
 
                     <div class="section bg-gray-300 dark:bg-gray-150 mr-4 p-2 rounded-xl">
                         <div class="text-right mb-2 mr-2">
@@ -24,15 +24,15 @@
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
                                 <tr>
                                     {{-- <th class="py-4">ID</th> --}}
-                                    <th class="py-4">Name</th>
-                                    <th class="py-4">Working position</th>
-                                    <th class="py-4">Day off's</th>
-                                    <th class="py-4">Annual Leave</th>
-                                    <th class="py-4">Parental leave</th>
-                                    <th class="py-4">Sick leave</th>
-                                    <th class="py-4">Compassionate leave</th>
-                                    <th class="py-4">Daily rest</th>
-                                    <th class="py-4">Actions</th>
+                                    <th class="py-2 px-10">Name</th>
+                                    <th class="py-2 px-10">Working position</th>
+                                    <th class="py-2 px-10">Day off's</th>
+                                    <th class="py-2 px-10">Annual Leave</th>
+                                    <th class="py-2 px-10">Parental leave</th>
+                                    <th class="py-2 px-10">Sick leave</th>
+                                    <th class="py-2 px-10">Compassionate leave</th>
+                                    <th class="py-2 px-10">Daily rest</th>
+                                    <th class="py-2 px-10">Actions</th>
                                 </tr>
                             </thead>
 
@@ -52,35 +52,35 @@
                                             </div>
                                         </td> --}}
 
-                                        <td class="font-bold px-20 py-6">
+                                        <td class="font-bold">
                                             {{ $user->name }}
                                         </td>
 
-                                        <td class="px-15 py-6">
+                                        <td class="">
                                             {{ $user->position }}
                                         </td>
 
-                                        <td class="px-20 py-6">
+                                        <td class="">
                                             {{ $user->daysOff['Annual leave'] + $user->daysOff['Parental leave'] + $user->daysOff['Sick leave'] + $user->daysOff['Compassionate leave'] + $user->daysOff['Daily rest'] }}
                                         </td>
 
-                                        <td class="px-20 py-6">
+                                        <td class="">
                                             {{ $user->daysOff['Annual leave'] }}
                                         </td>
 
-                                        <td class="px-20 py-6">
+                                        <td class="">
                                             {{ $user->daysOff['Parental leave'] }}
                                         </td>
 
-                                        <td class="px-20 py-6">
+                                        <td class="">
                                             {{ $user->daysOff['Sick leave'] }}
                                         </td>
 
-                                        <td class="px-20 py-6">
+                                        <td class="">
                                             {{ $user->daysOff['Compassionate leave'] }}
                                         </td>
 
-                                        <td class="px-20 py-6">
+                                        <td class="">
                                             {{ $user->daysOff['Daily rest'] }}
                                         </td>
 
