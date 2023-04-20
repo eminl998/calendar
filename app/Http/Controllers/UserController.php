@@ -22,7 +22,6 @@ class UserController extends Controller
         return view('users', ['users' => $users]);
     }
 
-
     public function search(Request $request)
     {
         $query = $request->input('query');
@@ -56,6 +55,8 @@ class UserController extends Controller
 
         return $users;
     }
+
+
 
 
 
