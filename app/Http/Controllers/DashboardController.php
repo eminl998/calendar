@@ -7,11 +7,13 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\VacationRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VacationRequestApproved;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+        date_default_timezone_set('Europe/Paris');
         $holidays = HolidayVacation::get();
         $user = Auth::user();
 
@@ -33,7 +35,6 @@ class DashboardController extends Controller
                 ->with('user')
                 ->get();
         }
-
         $holidays = HolidayVacation::get();
         return view('dashboard', compact('pendingRequests', 'approvedRequests', 'rejectedRequests', 'holidays'));
     }

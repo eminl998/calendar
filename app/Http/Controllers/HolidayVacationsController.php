@@ -26,25 +26,13 @@ class HolidayVacationsController extends Controller
         return redirect()->route('holidays.index')->with('success', 'Holiday created successfully');
     }
 
-
-    // public function update(Request $request, $id)
-    // {
-    //     $holiday = HolidayVacation::find($id);
-    //     $holiday->title = $request->input('title');
-    //     $holiday->holiday_date = $request->input('holiday_date');
-    //     $holiday->rest_date = $request->input('rest_date');
-    //     $holiday->save();
-
-    //     return redirect()->route('holidays.index')->with('success', 'Holiday updated successfully');
-    // }
-
-
     public function destroy($title)
     {
         $holiday = HolidayVacation::find($title);
         $holiday->delete();
 
-        return redirect()->route('holidays.index')->with('success', 'Holiday deleted successfully');;
+        return redirect()->route('holidays.index')->with('success', 'Holiday deleted successfully');
+        ;
     }
 
 }

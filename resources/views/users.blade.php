@@ -19,7 +19,7 @@
                                     class="py-2 px-4 font-bold rounded-md shadow-sm text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-2 focus:outline-none">Search</button>
                             </form>
                         </div>
-                        <table class="w-full text-sm text-centre text-gray-500 dark:text-gray-400">
+                        <table class="w-full text-sm text-centre text-gray-700 dark:text-gray-200">
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
                                 <tr>

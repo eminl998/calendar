@@ -9,8 +9,12 @@ class VacationRequest extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['start_date','leave_type', 'end_date', 'status', 'user_id'];
-    
+    protected $fillable = ['start_date', 'leave_type', 'end_date', 'status', 'user_id'];
+
+    protected $casts = [
+        'updated_at' => 'datetime',
+    ];
+
     /**
      * Get the user that owns the VacationRequest
      *
