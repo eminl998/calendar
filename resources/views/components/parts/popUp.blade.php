@@ -14,7 +14,7 @@
                         <input type="date" name="end_date" id="end_date" value="{{ old('end_date') }}" min="{{ date('Y-m-d') }}" {!! $attributes->merge(['class' => 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm']) !!}>
                     </div>
                     <div class="mt-1 font-semibold text-gray-800 dark:text-gray-200">
-                        {{-- <label>Leave Type</label> --}}
+                        <label>Leave Type</label>
                         <select name="leave_type" class="block w-full border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md py-2 px-4">
                             <option value="Annual Leave" {{old('leave_type')=='Annual Leave'?'selected':''}} >Annual leave</option>
                             <option value="Parental Leave" {{old('leave_type')=='Parental Leave'?'selected':''}} >Parental leave</option>

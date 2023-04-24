@@ -1,4 +1,4 @@
-<aside id="default-sidebar" class="fixed top-15 left-0 z-40  h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+{{-- <aside id="default-sidebar" class="fixed top-15 left-0 z-40  h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
   <div class="h-fulll px-2 py-2 overflow-y-auto bg-gray-300 dark:bg-gray-900 rounded-lg">
     <ul class=" space-y-2 font-medium">
       @include('components.parts.sidebarRows.sidebarRows')
@@ -26,6 +26,7 @@
   .hide {
     display: none;
   }
+
 </style>
 
 <!-- JavaScript to enable drag and drop -->
@@ -33,7 +34,6 @@
 const handle = document.querySelector('.handle');
 const sidebar = document.querySelector('#default-sidebar');
 const minimizeButton = document.querySelector('#minimize-sidebar');
-
 
 let isDragging = false;
 let isMinimized = false;
@@ -46,6 +46,7 @@ handle.addEventListener('mousedown', (event) => {
   isDragging = true;
   initialX = event.clientX - offsetX;
   initialY = event.clientY - offsetY;
+  offsetY = event.clientY - sidebar.offsetTop;
 });
 
 document.addEventListener('mousemove', (event) => {
@@ -84,16 +85,7 @@ if (savedPosition) {
   sidebar.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
 }
 
-// Minimize button
-minimizeButton.addEventListener('click', () => {
-  isMinimized = true;
-  sidebar.style.transform = `translateX(-${sidebar.offsetWidth}px)`;
-});
-
-</script>
-
-
-
+</script> --}}
 
 {{--
 
@@ -104,3 +96,91 @@ minimizeButton.addEventListener('click', () => {
       <span class="inline-flex items-center justify-center w-3 h-3 p-5 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-xl dark:bg-blue-900 dark:text-blue-300">Soon</span>
    </a>
 </li> --}}
+
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  @include('components.parts.sidebarRows.sidebarRows')
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
+</div>
+ <style>
+    /* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: rgb(226, 226, 226); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #5500ff;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 15px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+ </style>
+ <script>
+    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+ </script>
