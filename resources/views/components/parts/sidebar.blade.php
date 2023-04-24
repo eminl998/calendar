@@ -151,7 +151,7 @@ if (savedPosition) {
   cursor: pointer;
   background-color: #111;
   color: white;
-  padding: 7px 15px;
+  padding: 7px 7px;
   border: 2px solid #e5e7eb;
   border-radius: 0.375rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -191,4 +191,5 @@ function closeNav() {
   document.getElementsByClassName("openbtn")[0].style.display = "block";
 
 }
+
  </script>
