@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VacationRequestDeclined;
 use App\Models\HolidayVacation;
 use Illuminate\Support\Facades\Auth;
 use App\Models\VacationRequest;
@@ -60,6 +61,13 @@ class DashboardController extends Controller
     {
         $request->status = 'rejected';
         $request->save();
+
+        // Retrieve the user associated with the vacation request
+        $user = $request->user;
+
+        // Send the email
+        Mail::to($user->email)
+            ->send(new VacationRequestDeclined($request, $user));
 
         return redirect()->back()->with('success', 'Vacation request rejected successfully.');
     }

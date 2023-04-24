@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewVacationRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\VacationRequest;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
 class VacationRequestController extends Controller
@@ -43,10 +46,18 @@ class VacationRequestController extends Controller
             'user_id' => auth()->id(),
         ]);
 
+        // Save the new vacation request
         $vacationRequest->save();
+
+        // Send an email notification to the admin
+        $user = auth()->user();
+        Mail::to(User::where('is_admin', 1)->get())
+            ->send(new NewVacationRequest($vacationRequest, $user));
 
         return redirect()->route('dashboard')->with('success', 'Vacation request has been created successfully!');
     }
+
+
 
     public function destroy($id)
     {
