@@ -13,39 +13,40 @@
                     <div class="flex items-center justify-center mt-4 mb-4">
                         <div class="text-center lg:flex lg:items-center justify-between">
                             <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
-                                <div
-                                    class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
                                     <label for="name">Name:</label>
-                                    <input type="text" name="name" id="name"
-                                        {!! $attributes->merge([
-                                            'class' =>
-                                                'h-10 border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
-                                        ]) !!} value="{{ old('name') }}"
-                                        required>
+                                    <input type="text" name="name" id="name" {!! $attributes->merge([
+                                        'class' =>
+                                            'h-10 border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
+                                    ]) !!}
+                                        value="{{ old('name') }}" required>
                                 </div>
-                                <div
-                                    class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
                                     <label for="email">Email:</label>
-                                    <input type="email" name="email" id="email"
-                                        {!! $attributes->merge([
-                                            'class' =>
-                                                'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
-                                        ]) !!} value="{{ old('email') }}"
+                                    <input type="email" name="email" id="email" {!! $attributes->merge([
+                                        'class' =>
+                                            'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
+                                    ]) !!}
+                                        value="{{ old('email') }}" required>
+                                </div>
+
+                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                    <label for="password">Password:</label>
+                                    <input type="password" name="password" id="password" {!! $attributes->merge([
+                                        'class' =>
+                                            'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
+                                    ]) !!}
                                         required>
                                 </div>
-
-                                    <div
-                                    class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
-                                    <label for="password">Password:</label>
-                                    <input type="password" name="password" id="password"
-                                        {!! $attributes->merge([
-                                            'class' =>
-                                                'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
-                                        ]) !!} required>
-                                </div>
-
-                                <div
-                                    class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center justify-center mt-4 mb-4">
+                        <div class="text-center lg:flex lg:items-center justify-between">
+                            <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
+                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
                                     <label for="position">Position:</label>
                                     <div style="height: 50px; overflow-y: scroll;">
                                         <select name="position"
@@ -95,26 +96,21 @@
                                             <option value="Security Analyst"
                                                 {{ old('position') == 'Security Analyst' ? 'selected' : '' }}>
                                                 Security Analyst</option>
-                                            <option value="Other"
-                                                {{ old('position') == 'Other' ? 'selected' : '' }}>
+                                            <option value="Other" {{ old('position') == 'Other' ? 'selected' : '' }}>
                                                 Other</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <div
-                                    class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
                                     <label for="is_admin">Is Admin:</label>
-                                    <select name="is_admin" id="is_admin"
-                                        {!! $attributes->merge([
-                                            'class' =>
-                                                'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
-                                        ]) !!} required>
-                                        <option value="0"
-                                            {{ old('is_admin') == '0' ? 'selected' : '' }}>
+                                    <select name="is_admin" id="is_admin" {!! $attributes->merge([
+                                        'class' =>
+                                            'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
+                                    ]) !!} required>
+                                        <option value="0" {{ old('is_admin') == '0' ? 'selected' : '' }}>
                                             No</option>
-                                        <option value="1"
-                                            {{ old('is_admin') == '1' ? 'selected' : '' }}>
+                                        <option value="1" {{ old('is_admin') == '1' ? 'selected' : '' }}>
                                             Yes</option>
                                     </select>
                                 </div>
@@ -124,45 +120,43 @@
                                         {!! $attributes->merge([
                                             'class' =>
                                                 'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
-                                        ]) !!} value="{{ old('personalIDnumber') }}"
-                                        required>
+                                        ]) !!} value="{{ old('personalIDnumber') }}" required>
                                 </div>
                                 <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
-                                    <label for="phoneNumber">Personal ID Number:</label>
-                                    <input type="text" name="phoneNumber" id="phoneNumber"
-                                        {!! $attributes->merge([
-                                            'class' =>
-                                                'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
-                                        ]) !!} value="{{ old('phoneNumber') }}"
-                                        required>
+                                    <label for="phoneNumber">Phone Number:</label>
+                                    <input type="text" name="phoneNumber" id="phoneNumber" {!! $attributes->merge([
+                                        'class' =>
+                                            'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
+                                    ]) !!}
+                                        value="{{ old('phoneNumber') }}" required>
                                 </div>
                                 <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
                                     <label for="gender">Gender:</label>
-                                    <select name="gender" id="gender"
-                                        {!! $attributes->merge([
-                                            'class' =>
-                                                'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
-                                        ]) !!} required>
-                                        <option value="male"
-                                            {{ old('gender') == 'male' ? 'selected' : '' }}>
+                                    <select name="gender" id="gender" {!! $attributes->merge([
+                                        'class' =>
+                                            'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
+                                    ]) !!} required>
+                                        <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>
                                             Male</option>
-                                        <option value="female"
-                                            {{ old('gender') == 'female' ? 'selected' : '' }}>
+                                        <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>
                                             Female</option>
                                     </select>
-                                </div>
-
-
-                                <div class="mt-1 leading-tight">
-                                    <button type="submit"
-                                        class="border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm hover:bg-indigo-500 hover:text-white font-bold py-2 px-4 mt-5">Register
-                                        New User</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
+                <div class="flex items-center justify-center mt-4 mb-4">
+                    <div class="text-center lg:flex lg:items-center justify-between">
+                        <div class="mt-1 leading-tight">
+                            <button type="submit"
+                                class="border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm hover:bg-indigo-500 hover:text-white font-bold py-2 px-4 mt-5">Register
+                                New User</button>
+                        </div>
+                    </div>
+                </div>
         </div>
+        </form>
     </div>
+</div>
 </div>

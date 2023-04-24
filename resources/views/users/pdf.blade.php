@@ -43,7 +43,8 @@
             <tr>
                 <td style="border: 1px solid #ccc; padding: 0.3rem; text-align: center;">{{ $user->name }}</td>
                 <td style="border: 1px solid #ccc; padding: 0.3rem; text-align: center;">{{ $user->email }}</td>
-                <td style="border: 1px solid #ccc; padding: 0.3rem; text-align: center;">{{ $user->personalIDnumber }}</td>
+                <td style="border: 1px solid #ccc; padding: 0.3rem; text-align: center;">{{ $user->personalIDnumber }}
+                </td>
                 <td style="border: 1px solid #ccc; padding: 0.3rem; text-align: center;">{{ $user->position }}</td>
             </tr>
         </tbody>
