@@ -1,12 +1,3 @@
-{{-- <div class="handle float-left ml-5">
-<svg class="w-5 h-5 inline-block mr-1" fill="gray" viewBox="0 0 50 50">
-    <path d="M49.7,25.3l-8.3-9c-0.6-0.6-1.4-0.1-1.4,0.9V23H30c-0.6,0-1-0.4-1-1V12h5.9c1,0,1.5-0.9,0.9-1.4l-9-8.3
-    c-0.4-0.3-1-0.3-1.4,0l-9,8.3c-0.6,0.6-0.1,1.4,0.9,1.4H23v10c0,0.6-0.4,1-1,1H12v-5.9c0-1-0.9-1.5-1.4-0.9l-8.3,9
-    c-0.3,0.4-0.3,1,0,1.4l8.3,9c0.6,0.6,1.4,0.1,1.4-0.9V29h10c0.6,0,1,0.4,1,1v10h-5.9c-1,0-1.5,0.9-0.9,1.4l9,8.3
-    c0.4,0.3,1,0.3,1.4,0l9-8.3c0.6-0.6,0.1-1.4-0.9-1.4H29V30c0-0.6,0.4-1,1-1h10v5.9c0,1,0.9,1.5,1.4,0.9l8.3-9
-    C50.1,26.3,50.1,25.7,49.7,25.3z"/>
-</svg>
-</div> --}}
 
 <div class="list-item mt-7 py-1">
     <a href="/dashboard" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -55,10 +46,3 @@
 </div>
 @endif
 
-{{-- <div class="list-item">
-    <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-        <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
-        <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
-        <div class="inline-flex items-center justify-center w-6 h-6 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">Soon</div>
-    </a>
-</div> --}}
