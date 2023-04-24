@@ -118,6 +118,40 @@
                                             Yes</option>
                                     </select>
                                 </div>
+                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                    <label for="personalIDnumber">Personal ID Number:</label>
+                                    <input type="text" name="personalIDnumber" id="personalIDnumber"
+                                        {!! $attributes->merge([
+                                            'class' =>
+                                                'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
+                                        ]) !!} value="{{ old('personalIDnumber') }}"
+                                        required>
+                                </div>
+                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                    <label for="phoneNumber">Personal ID Number:</label>
+                                    <input type="text" name="phoneNumber" id="phoneNumber"
+                                        {!! $attributes->merge([
+                                            'class' =>
+                                                'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
+                                        ]) !!} value="{{ old('phoneNumber') }}"
+                                        required>
+                                </div>
+                                <div class="flex flex-col font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+                                    <label for="gender">Gender:</label>
+                                    <select name="gender" id="gender"
+                                        {!! $attributes->merge([
+                                            'class' =>
+                                                'border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm',
+                                        ]) !!} required>
+                                        <option value="male"
+                                            {{ old('gender') == 'male' ? 'selected' : '' }}>
+                                            Male</option>
+                                        <option value="female"
+                                            {{ old('gender') == 'female' ? 'selected' : '' }}>
+                                            Female</option>
+                                    </select>
+                                </div>
+
 
                                 <div class="mt-1 leading-tight">
                                     <button type="submit"
