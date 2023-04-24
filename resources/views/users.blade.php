@@ -9,7 +9,7 @@
             <div class="text-center lg:flex lg:items-center justify-between">
                 <div class="flex sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6 p-4">
 
-                    <div class="section bg-gray-300 dark:bg-gray-150 mr-4 p-2 rounded-xl">
+                    <div class="section bg-gray-300 dark:bg-gray-900 mr-4 p-2 rounded-xl">
                         <div class="text-right mb-2 mr-2">
                             <form action="{{ route('users.search') }}" method="GET">
                                 <input type="text" name="query" placeholder="Search employees..."

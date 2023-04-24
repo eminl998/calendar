@@ -8,7 +8,7 @@
             </div>
 
             {{-- Shfaqja e Sidebarit --}}
-            <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-gray-100 dark:bg-gray-800 overflow-hidden ">
                 @include('components.parts.sidebar')
             </div>
 
@@ -18,7 +18,7 @@
             </div>
 
             {{-- Shfaqja e kerkesave --}}
-            <div  class="bg-gray-100 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
+            <div  class="bg-gray-100 dark:bg-gray-800 overflow-hidden mt-4">
                 @include('components.parts.request')
             </div>
 

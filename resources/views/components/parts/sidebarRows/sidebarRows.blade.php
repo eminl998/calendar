@@ -1,4 +1,4 @@
-<div class="handle float-left ml-5">
+{{-- <div class="handle float-left ml-5">
 <svg class="w-5 h-5 inline-block mr-1" fill="gray" viewBox="0 0 50 50">
     <path d="M49.7,25.3l-8.3-9c-0.6-0.6-1.4-0.1-1.4,0.9V23H30c-0.6,0-1-0.4-1-1V12h5.9c1,0,1.5-0.9,0.9-1.4l-9-8.3
     c-0.4-0.3-1-0.3-1.4,0l-9,8.3c-0.6,0.6-0.1,1.4,0.9,1.4H23v10c0,0.6-0.4,1-1,1H12v-5.9c0-1-0.9-1.5-1.4-0.9l-8.3,9
@@ -6,7 +6,7 @@
     c0.4,0.3,1,0.3,1.4,0l9-8.3c0.6-0.6,0.1-1.4-0.9-1.4H29V30c0-0.6,0.4-1,1-1h10v5.9c0,1,0.9,1.5,1.4,0.9l8.3-9
     C50.1,26.3,50.1,25.7,49.7,25.3z"/>
 </svg>
-</div>
+</div> --}}
 
 <div class="list-item mt-7 py-1">
     <a href="/dashboard" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">

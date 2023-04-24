@@ -107,7 +107,7 @@ if (savedPosition) {
   <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
 </div>
  <style>
-    /* The sidebar menu */
+/* The sidebar menu */
 .sidebar {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
@@ -147,16 +147,20 @@ if (savedPosition) {
 
 /* The button used to open the sidebar */
 .openbtn {
-  font-size: 15px;
+  font-size: 13px;
   cursor: pointer;
   background-color: #111;
   color: white;
-  padding: 10px 10px;
-  border: none;
+  padding: 7px 15px;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease 0s;
 }
 
 .openbtn:hover {
-  background-color: #444;
+  background-color: #5500ff;
+  border-color: #5500ff;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -170,17 +174,21 @@ if (savedPosition) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
 }
+
  </style>
  <script>
     /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
+  document.getElementsByClassName("openbtn")[0].style.display = "none";
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
+  document.getElementsByClassName("openbtn")[0].style.display = "block";
+
 }
  </script>
