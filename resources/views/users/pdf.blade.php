@@ -9,7 +9,7 @@
 
 <body style="font-family: sans-serif; margin: 0; padding: 0;">
     <div>
-        <img src="/images/zslogo.png" alt="Logo">
+        <img src="resources/images/zslogo.png" alt="Logo">
     </div>
     <h1
         style="font-size: 17px; margin-bottom: 2rem; margin-top: 2rem; color: rgb(53, 53, 53); text-align: center; text-transform: uppercase;">

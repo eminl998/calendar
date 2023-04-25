@@ -80,6 +80,36 @@ class UserController extends Controller
         return $daysOff;
     }
 
+    public function edit(User $user)
+    {
+        return view('users.editUser', compact('user'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+        try {
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->is_admin = $request->input('is_admin');
+            $user->position = $request->input('position');
+            if (!empty($request->input('password'))) {
+                $user->password = Hash::make($request->input('password'));
+            }
+            $user->save();
+
+            return redirect()->route('users.index')->with('success', 'User updated successfully');
+        } catch (QueryException $e) {
+            // Check if the exception was caused by a unique constraint violation
+            if ($e->getCode() == 23000) {
+                // Return a flash message indicating that the email address is already in use
+                return redirect()->back()->withInput()->withErrors(['email' => 'This email address is already in use.']);
+            } else {
+                // Rethrow the exception if it was caused by something else
+                throw $e;
+            }
+        }
+    }
+
 
 
     public function downloadPdf($email)
@@ -115,25 +145,25 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try {
-        $user = new User;
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->is_admin = $request->input('is_admin');
-        $user->position = $request->input('position');
-        $user->password = Hash::make($request->input('password'));
-        $user->save();
+            $user = new User;
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->is_admin = $request->input('is_admin');
+            $user->position = $request->input('position');
+            $user->password = Hash::make($request->input('password'));
+            $user->save();
 
-        return redirect()->route('users.index')->with('success', 'User registered successfully');
+            return redirect()->route('users.index')->with('success', 'User registered successfully');
         } catch (QueryException $e) {
-        // Check if the exception was caused by a unique constraint violation
-        if ($e->getCode() == 23000) {
-            // Return a flash message indicating that the email address is already in use
-            return redirect()->back()->withInput()->withErrors(['email' => 'This email address is already in use.']);
-        } else {
-            // Rethrow the exception if it was caused by something else
-            throw $e;
+            // Check if the exception was caused by a unique constraint violation
+            if ($e->getCode() == 23000) {
+                // Return a flash message indicating that the email address is already in use
+                return redirect()->back()->withInput()->withErrors(['email' => 'This email address is already in use.']);
+            } else {
+                // Rethrow the exception if it was caused by something else
+                throw $e;
+            }
         }
-    }
     }
 
 

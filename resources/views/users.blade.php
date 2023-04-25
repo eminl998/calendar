@@ -116,12 +116,17 @@
                                                                     clip-rule="evenodd" />
                                                             </svg>
                                                         </a>
-                                                        <form id="delete-form-{{ $user->id }}" method="POST"
-                                                            action="{{ route('users.destroy', $user->id) }}"
-                                                            style="display: none;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                        </form>
+                                                            <form id="delete-form-{{ $user->id }}" method="POST"
+                                                                action="{{ route('users.destroy', $user->id) }}"
+                                                                style="display: none;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
+                                                        </a>
+
+                                                        <a href="{{ route('users.editUser', ['user' => $user->id]) }}">Edit</a>
+
+
                                                     </div>
                                                 </td>
                                             </tr>

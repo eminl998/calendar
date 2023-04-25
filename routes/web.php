@@ -63,6 +63,11 @@ Route::middleware('auth')->group(function () {
         ->name('users.store');
     Route::get('search', [UserController::class, 'search'])
         ->name('users.search');
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])
+        ->name('users.editUser');
+    Route::put('/users/{user}', [UserController::class, 'update'])
+        ->name('users.update');
+
     Route::delete('/users/{name}', [UserController::class, 'destroy'])
         ->name('users.destroy');
 
