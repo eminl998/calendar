@@ -33,7 +33,7 @@
 
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-  color: #5500ff;
+  color: #5500ffa9;
 }
 
 /* Position and style the close button (top right corner) */
@@ -53,14 +53,14 @@
   color: white;
   padding: 7px 7px;
   border: 2px solid #e5e7eb;
-  border-radius: 0.375rem;
+  border-radius: 10px; /* Add this property to make the button more rounded */
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease 0s;
 }
 
 .openbtn:hover {
   background-color: #5500ff;
-  border-color: #5500ff;
+  border-color: #ffffff;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
