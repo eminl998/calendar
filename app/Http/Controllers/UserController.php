@@ -92,6 +92,9 @@ class UserController extends Controller
             $user->email = $request->input('email');
             $user->is_admin = $request->input('is_admin');
             $user->position = $request->input('position');
+            $user->personalIDnumber = $request->input('personalIDnumber');
+            $user->phoneNumber = $request->input('phoneNumber');
+            $user->gender = $request->input('gender');
             if (!empty($request->input('password'))) {
                 $user->password = Hash::make($request->input('password'));
             }
@@ -150,6 +153,9 @@ class UserController extends Controller
             $user->email = $request->input('email');
             $user->is_admin = $request->input('is_admin');
             $user->position = $request->input('position');
+            $user->personalIDnumber = $request->input('personalIDnumber');
+            $user->phoneNumber = $request->input('phoneNumber');
+            $user->gender = $request->input('gender');
             $user->password = Hash::make($request->input('password'));
             $user->save();
 
